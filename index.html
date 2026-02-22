@@ -461,8 +461,8 @@
     /* ─── PHOTO GRID ─── */
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 2.5rem;
+      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      gap: 4rem 3rem;
       margin-top: 3rem;
     }
 
@@ -485,11 +485,22 @@
 
     .photo-item figcaption {
       font-family: 'Cormorant SC', serif;
-      font-size: 0.75rem;
+      font-size: 0.8rem;
       letter-spacing: 0.2em;
       color: var(--faded);
       margin-top: 0.75rem;
       text-align: center;
+    }
+
+    .photo-item .back-note {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: #c9b89a;
+      text-align: center;
+      margin-top: 0.5rem;
+      line-height: 1.55;
+      opacity: 0.85;
     }
 
     /* ─── FOOTER ─── */
@@ -772,21 +783,25 @@
         <figure class="photo-item fade-in">
           <img src="18-6.jpg" alt="Иринка 1914" />
           <figcaption>Варна, 1914</figcaption>
+          <p class="back-note">„Тук съм на 18 години, снета в Варненското фото-ателие където работех в Варна"</p>
         </figure>
 
         <figure class="photo-item fade-in">
           <img src="irinka_1932-1.jpg" alt="Иринка 1932" />
           <figcaption>София, 1932</figcaption>
+          <p class="back-note">„Тук съм на 36 години."</p>
         </figure>
 
         <figure class="photo-item fade-in">
           <img src="irinka1940.jpg" alt="Иринка 1940" />
           <figcaption>София, 1940</figcaption>
+          <p class="back-note">„Irene · 1940"</p>
         </figure>
 
         <figure class="photo-item fade-in">
           <img src="irinka_1943-4.jpg" alt="Иринка 1943" />
-          <figcaption>София, 1943</figcaption>
+          <figcaption>София, Февруари 1943</figcaption>
+          <p class="back-note">„Тук съм точно на 47 години, преди да отида на баня се фотографирах"</p>
         </figure>
 
         <figure class="photo-item fade-in">
