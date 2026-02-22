@@ -458,6 +458,116 @@
       border-left: 1px solid var(--faded);
     }
 
+    /* ─── FLIP CARDS ─── */
+    .flip-hint {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--faded);
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .flip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .flip-card {
+      height: 420px;
+      perspective: 1200px;
+      cursor: pointer;
+    }
+
+    .flip-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .flip-card.flipped .flip-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-front, .flip-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      overflow: hidden;
+    }
+
+    .flip-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+      filter: sepia(25%) contrast(1.05) brightness(0.9);
+      transition: filter 0.3s ease;
+      display: block;
+    }
+
+    .flip-card:hover .flip-front img {
+      filter: sepia(10%) contrast(1.1) brightness(1.0);
+    }
+
+    .flip-label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 2.5rem 1.2rem 1.2rem;
+      background: linear-gradient(to top, rgba(14,11,8,0.92), transparent);
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      color: var(--faded);
+    }
+
+    .flip-back {
+      transform: rotateY(180deg);
+      background: #f7f0e4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      border: 1px solid var(--faded);
+      gap: 1.5rem;
+    }
+
+    .flip-back .handwriting-img {
+      width: 100%;
+      max-height: 220px;
+      object-fit: contain;
+      filter: sepia(10%);
+    }
+
+    .handwriting-text {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #2a3a5a;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .flip-transcript {
+      font-family: 'EB Garamond', serif;
+      font-size: 0.85rem;
+      color: var(--sepia);
+      text-align: center;
+      font-style: italic;
+      line-height: 1.5;
+      border-top: 1px solid var(--faded);
+      padding-top: 1rem;
+      width: 100%;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background-color: var(--dark);
@@ -732,43 +842,80 @@
     <div class="photo-strip-inner">
       <p class="section-label fade-in">Портрети</p>
       <h2 class="section-title fade-in">Иринка през годините</h2>
+      <p class="flip-hint fade-in">← Натиснете снимката, за да видите написаното на гърба →</p>
 
-      <div class="photo-grid">
-        <div class="photo-card fade-in">
-          <img
-            src="https://tokaihto1.wordpress.com/wp-content/uploads/2024/12/18-6.jpg"
-            alt="Варна 1914 г."
-          />
-          <div class="photo-card-caption">Варна, 1914 — ателието на Franz Bauer</div>
+      <div class="flip-grid">
+
+        <!-- 1914 -->
+        <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="https://tokaihto1.wordpress.com/wp-content/uploads/2024/12/18-6.jpg" alt="Иринка 1914" />
+              <div class="flip-label">Варна, 1914 · 18 години</div>
+            </div>
+            <div class="flip-back">
+              <img src="Irinka_1914_b.jpg" alt="Гърб 1914" class="handwriting-img" />
+              <p class="flip-transcript">„Тук съм на 18 години, снета в Варненското фото-ателие където работех в Варна"</p>
+            </div>
+          </div>
         </div>
-        <div class="photo-card fade-in">
-          <img
-            src="https://tokaihto1.wordpress.com/wp-content/uploads/2024/12/irinka_1932-2.jpg"
-            alt="Иринка Чобанова 1932"
-          />
-          <div class="photo-card-caption">София, 1932</div>
+
+        <!-- 1932 -->
+        <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="irinka_1932-1.jpg" alt="Иринка 1932" />
+              <div class="flip-label">София, 1932 · 36 години</div>
+            </div>
+            <div class="flip-back">
+              <div class="handwriting-text">„Тук съм на 36 години."</div>
+              <p class="flip-transcript">София, 1932</p>
+            </div>
+          </div>
         </div>
-        <div class="photo-card fade-in">
-          <img
-            src="https://tokaihto1.wordpress.com/wp-content/uploads/2024/12/irinka1940-1.jpg"
-            alt="Иринка Чобанова 1940"
-          />
-          <div class="photo-card-caption">София, 1940</div>
+
+        <!-- 1940 -->
+        <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="irinka1940.jpg" alt="Иринка 1940" />
+              <div class="flip-label">София, 1940 · 44 години</div>
+            </div>
+            <div class="flip-back">
+              <div class="handwriting-text" style="font-size:2.5rem;">Irene</div>
+              <p class="flip-transcript">Подписала се на латиница — „Irene" · 1940</p>
+            </div>
+          </div>
         </div>
-        <div class="photo-card fade-in">
-          <img
-            src="https://tokaihto1.wordpress.com/wp-content/uploads/2024/12/irinka_1943-4.jpg"
-            alt="Иринка Чобанова 1943"
-          />
-          <div class="photo-card-caption">София, 1943</div>
+
+        <!-- 1943 -->
+        <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="irinka_1943-4.jpg" alt="Иринка 1943" />
+              <div class="flip-label">София, Февруари 1943 · 47 години</div>
+            </div>
+            <div class="flip-back">
+              <div class="handwriting-text">„Тук съм точно на 47 години, преди да отида на баня се фотографирах"</div>
+              <p class="flip-transcript">Февруари 1943 г., София — снела се сама преди банята</p>
+            </div>
+          </div>
         </div>
-        <div class="photo-card fade-in">
-          <img
-            src="https://tokaihto1.wordpress.com/wp-content/uploads/2024/12/irinka_1965-1.jpg"
-            alt="Иринка Чобанова 1965"
-          />
-          <div class="photo-card-caption">София, 1965</div>
+
+        <!-- 1965 -->
+        <div class="flip-card fade-in" onclick="this.classList.toggle('flipped')">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <img src="https://tokaihto1.wordpress.com/wp-content/uploads/2024/12/irinka_1965-1.jpg" alt="Иринка 1965" />
+              <div class="flip-label">София, 1965 · 69 години</div>
+            </div>
+            <div class="flip-back">
+              <div class="handwriting-text">„Фото ИРИС"</div>
+              <p class="flip-transcript">На 69 години — все още зад обектива</p>
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
