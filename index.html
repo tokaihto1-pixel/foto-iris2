@@ -503,6 +503,51 @@
       opacity: 0.85;
     }
 
+    /* ─── STAMP CARDS ─── */
+    .stamp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .stamp-card {
+      background: #fff;
+      border: 1px solid var(--faded);
+      overflow: hidden;
+    }
+
+    .stamp-card img {
+      width: 100%;
+      height: 260px;
+      object-fit: contain;
+      object-position: center;
+      background: #f9f4ec;
+      padding: 1rem;
+      display: block;
+      filter: sepia(10%);
+    }
+
+    .stamp-info {
+      padding: 1rem 1.2rem;
+      border-top: 1px solid var(--faded);
+      background: var(--cream);
+    }
+
+    .stamp-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+
+    .stamp-address {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--sepia);
+      margin-top: 0.3rem;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background-color: var(--dark);
@@ -601,7 +646,7 @@
       <div class="hero-text">
         <p class="hero-eyebrow">Фото ИРИС · София</p>
         <h1 class="hero-name">Иринка<br/><em>Чобанова</em></h1>
-        <p class="hero-dates">1896 — 1986+</p>
+        <p class="hero-dates">1896 — 1987</p>
       </div>
     </div>
     <div class="hero-right">
@@ -628,8 +673,10 @@
       <div class="bio-text fade-in">
         <p>
           Иринка Чобанова е родена през 1896 г. в Лом, в семейството на поручик
-          Стоян Тодоров Чобанов и Кина Кадиева Чобанова. В началото на ХХ век
-          семейството се премества във Варна. Като първо от седем деца, тя рано
+          Стоян Тодоров Чобанов (роден ок. 1870 г. в Хасан Факъх, околия Осман Пазар,
+          окръг Ески Джума, Османска Империя — днес с. Камбурово) и
+          Кина Кадиева Чобанова (родена в Попово, Османска Империя).
+          В началото на ХХ век семейството се премества във Варна. Като първо от седем деца, тя рано
           напуска училище, за да помага на семейството и да учи занаят.
         </p>
         <p>
@@ -669,6 +716,14 @@
         <div class="sidebar-fact fade-in">
           <div class="sidebar-fact-label">Роден град</div>
           <div class="sidebar-fact-value">Лом, 1896</div>
+        </div>
+        <div class="sidebar-fact fade-in">
+          <div class="sidebar-fact-label">Баща</div>
+          <div class="sidebar-fact-value">Стоян Чобанов, Камбурово (~1870)</div>
+        </div>
+        <div class="sidebar-fact fade-in">
+          <div class="sidebar-fact-label">Майка</div>
+          <div class="sidebar-fact-value">Кина Кадиева, Попово</div>
         </div>
         <div class="sidebar-fact fade-in">
           <div class="sidebar-fact-label">Чиракуване</div>
@@ -716,11 +771,11 @@
           </div>
         </div>
         <div class="timeline-item">
-          <span class="timeline-year">1907</span>
+          <span class="timeline-year">~1907–1909</span>
           <div class="timeline-content">
             <strong>Начало на чиракуването.</strong> Учи фотографски занаят
-            при Франц Бауер и Захарий Жейнов във Варна.
-            Тя е на единадесет години.
+            при Франц Бауер и Захарий Жейнов във Варна —
+            на около 11–13 години.
           </div>
         </div>
         <div class="timeline-item">
@@ -768,6 +823,14 @@
             <em>56 години непрекъснато фотографско ателие в София.</em>
           </div>
         </div>
+        <div class="timeline-item">
+          <span class="timeline-year">1987</span>
+          <div class="timeline-content">
+            <strong>Иринка Чобанова почива.</strong> Преди това, на около 85 години,
+            надписва на ръка всяка снимка от семейния албум — за своя племенник,
+            за да не се забрави откъде идва семейството.
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -777,6 +840,11 @@
     <div class="photo-strip-inner">
       <p class="section-label fade-in">Портрети</p>
       <h2 class="section-title fade-in">Иринка през годините</h2>
+      <p class="fade-in" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px; font-style: italic;">
+        Иринка приготвяла фокуса и композицията предварително, после влизала в кадъра.
+        Близък човек — понякога нейният племенник — отварял и затварял капака на апарата.
+        Десетилетия преди думата „selfie" да съществува.
+      </p>
 
       <div class="photo-grid">
 
@@ -800,8 +868,8 @@
 
         <figure class="photo-item fade-in">
           <img src="irinka_1943-4.jpg" alt="Иринка 1943" />
-          <figcaption>София, Февруари 1943</figcaption>
-          <p class="back-note">„Тук съм точно на 47 години, преди да отида на баня се фотографирах"</p>
+          <figcaption>София, Февруари 1943 — на бала</figcaption>
+          <p class="back-note">„Тук съм точно на 47 години, преди да отида на бала се фотографирах"</p>
         </figure>
 
         <figure class="photo-item fade-in">
@@ -809,9 +877,81 @@
           <figcaption>София, 1965</figcaption>
         </figure>
 
+        <figure class="photo-item fade-in">
+          <img src="Irinka_skoteto.jpg" alt="Иринка с котката ~1955" />
+          <figcaption>София, ~1955–1957</figcaption>
+          <p class="back-note">„На ти знаеш че обичам котенца — тук съм снета с базарджинчето ми"</p>
+        </figure>
+
       </div>
     </div>
   </section>
+
+  <!-- ═══ FAMILY ═══ -->
+  <div style="background: var(--cream); padding: 1px 0;">
+    <div class="section">
+      <p class="section-label fade-in">Семейството</p>
+      <h2 class="section-title fade-in">Надписано с нейна ръка</h2>
+      <p class="fade-in" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;">
+        На около 85 години Иринка Чобанова надписала на ръка всяка снимка
+        от семейния албум — за своя племенник. Точно от чия гледна точка пише
+        се усеща във всяка дума: „твоя отец", „чичо ти", „леля ти". Тя разказва
+        неговата история, не своята.
+      </p>
+
+      <div class="photo-grid">
+
+        <figure class="photo-item fade-in">
+          <img src="Diado_Stoyan.jpg" alt="Дядо Стоян" />
+          <figcaption>Дядо Стоян Чобанов — Варна</figcaption>
+          <p class="back-note">„Спомен от дедото Стоян Чобанов, фелдфебел в 8 транспортен полк — Варна"</p>
+        </figure>
+
+        <figure class="photo-item fade-in">
+          <img src="Kina_Shteriu_Petar.jpg" alt="Баба Кина с Щерю и Петър" />
+          <figcaption>Баба Кина с Щерю и малкия Петър — Варна</figcaption>
+          <p class="back-note">„Спомен от некогашният Варненски животец ний незабравим. Тук е бабата Кина — чичо ти Щерю като малчк в първо отделение, а малкото детенце е твоя отец татко малко детенце."</p>
+        </figure>
+
+        <figure class="photo-item fade-in">
+          <img src="petar1.jpg" alt="Баща ми като пилот" />
+          <figcaption>Баща ти Петър — пилот</figcaption>
+          <p class="back-note">„Тука милият ти татко — пилотъ в отпуска беше дошел и аз го снех, до като си изкара военната служба аз с страх прекарах по него и много плаках до свършването на 2 годишна служба"</p>
+        </figure>
+
+        <figure class="photo-item fade-in">
+          <img src="petar2.jpg" alt="Баща ми на 28 години" />
+          <figcaption>Баща ти Петър — на 28 години</figcaption>
+          <p class="back-note">„Тук е милият ти татко в снимката е точно на 28 година"</p>
+        </figure>
+
+        <figure class="photo-item fade-in">
+          <img src="shteriu.jpg" alt="Чичо Щерю — офицер" />
+          <figcaption>Чичо Щерю — произведен в офицер</figcaption>
+          <p class="back-note">„Тук е чичо ти Щерю като млад още щом го произведох в чин офицер — сега и той остаря и е много болен"</p>
+        </figure>
+
+        <figure class="photo-item fade-in">
+          <img src="Xriska.jpg" alt="Леля Хриска" />
+          <figcaption>Леля Хриска — починала на 17 години</figcaption>
+          <p class="back-note">„Леля ти Хриска умря на 17 години — снимах я и като ученичка в малката снимка"</p>
+        </figure>
+
+        <figure class="photo-item fade-in">
+          <img src="strinka_Maria.jpg" alt="Стринка Мария" />
+          <figcaption>Стринка Мария — жената на Щерю</figcaption>
+          <p class="back-note">„В тази снимка е стринка ти Мария — жената на чичо ти Щерю. Тука аз я снех като млада. Тя тебе много те обича и всякак ме пита мамка пишо от тебе..."</p>
+        </figure>
+
+        <figure class="photo-item fade-in">
+          <img src="Irinka_Joro_Slavka.jpg" alt="Иринка кръсница на Славка и Жоро" />
+          <figcaption>Иринка — кръсница на Славка и Жоро</figcaption>
+          <p class="back-note">„Тук е Жоро и женят Славка — аз съм кръстница от страна на Славка. Вече чичото Жоро умря, станали две години."</p>
+        </figure>
+
+      </div>
+    </div>
+  </div>
 
   <!-- ═══ ARREST ═══ -->
   <section class="arrest-section">
@@ -830,6 +970,71 @@
         Освободена, тя се връща към занаята си и преименува ателието
         на „Фото Ирис".
       </p>
+    </div>
+  </section>
+
+  <!-- ═══ STAMPS ═══ -->
+  <div style="background: var(--cream); padding: 1px 0;">
+    <div class="section">
+      <p class="section-label fade-in">Документи</p>
+      <h2 class="section-title fade-in">Печатите на ателието</h2>
+      <p class="fade-in" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;">
+        Едни от малкото оцелели следи от работата на ателието — печатите върху
+        гърба на снимките. Те документират смяната на имената на булеварда:
+        <em>Царица Йоанна → Сталин → Витоша</em> — три режима, един адрес.
+      </p>
+
+      <div class="stamp-grid">
+        <div class="stamp-card fade-in">
+          <img src="265407393_5027482697263521_6509191257965299378_n.jpg" alt="Печат Фото Добруджа" />
+          <div class="stamp-info">
+            <div class="stamp-name">Фото „Добруджа"</div>
+            <div class="stamp-address">бул. Царица Йоанна № 20 · преди 1944 г.</div>
+          </div>
+        </div>
+        <div class="stamp-card fade-in">
+          <img src="zaha1b.png" alt="Печат Фото Ирис" />
+          <div class="stamp-info">
+            <div class="stamp-name">Фото „Ирис"</div>
+            <div class="stamp-address">ул. Сталин № 20 · София · след 1944 г.</div>
+          </div>
+        </div>
+        <div class="stamp-card fade-in">
+          <img src="zaha2b.png" alt="Печат Фото Ирис 2" />
+          <div class="stamp-info">
+            <div class="stamp-name">Фото „Ирис"</div>
+            <div class="stamp-address">ул. Сталин № 20 · София</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CLIENT PHOTOS ═══ -->
+  <section class="photo-strip">
+    <div class="photo-strip-inner">
+      <p class="section-label fade-in">Работата</p>
+      <h2 class="section-title fade-in">Снимки от ателието</h2>
+      <p class="fade-in" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px;">
+        За жалост над 99% от архивите на ателието са изгубени. Тези снимки са
+        сред малкото оцелели свидетелства за работата на Иринка Чобанова
+        като фотограф.
+      </p>
+
+      <div class="photo-grid">
+        <figure class="photo-item fade-in">
+          <img src="zaha1.png" alt="Клиентка на Фото Ирис" />
+          <figcaption>София — Фото „Ирис"</figcaption>
+        </figure>
+        <figure class="photo-item fade-in">
+          <img src="zaha2.png" alt="Клиентка на Фото Ирис" />
+          <figcaption>София — Фото „Ирис"</figcaption>
+        </figure>
+        <figure class="photo-item fade-in">
+          <img src="43166137_2197139300297889_168906658431369216_n.jpg" alt="Клиент на Фото Добруджа" />
+          <figcaption>София — Фото „Добруджа" / „Ирис"</figcaption>
+        </figure>
+      </div>
     </div>
   </section>
 
@@ -869,7 +1074,7 @@
   <!-- ═══ FOOTER ═══ -->
   <footer>
     <div class="footer-logo">Фото <span>ИРИС</span></div>
-    <div class="footer-sub">Иринка Стоянова Чобанова · 1896–1986+</div>
+    <div class="footer-sub">Иринка Стоянова Чобанова · 1896–1987</div>
     <div class="footer-divider"></div>
     <p class="footer-note">
       Сайтът е посветен на паметта на Иринка Чобанова —
