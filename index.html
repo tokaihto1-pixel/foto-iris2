@@ -441,6 +441,62 @@
       font-weight: 700;
     }
 
+    /* ─── FAMILY GRID — 1 pair per row, large ─── */
+    .family-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 5rem;
+      margin-top: 3rem;
+    }
+
+    .family-grid .photo-pair {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      max-width: 900px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .family-grid .photo-pair-images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .family-grid .photo-pair-images img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: sepia(20%) contrast(1.05) brightness(0.92);
+      transition: filter 0.4s ease;
+    }
+
+    .family-grid .photo-pair-images img:hover {
+      filter: sepia(5%) contrast(1.1) brightness(1.0);
+    }
+
+    .family-grid figcaption {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.2em;
+      color: var(--sepia);
+      text-align: center;
+    }
+
+    .family-grid .back-note {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      font-size: 1.15rem;
+      color: #2e1f0e;
+      text-align: center;
+      line-height: 1.65;
+      max-width: 750px;
+      margin: 0 auto;
+      border-top: 1px solid var(--faded);
+      padding-top: 1rem;
+    }
+
     /* ─── ARREST SECTION ─── */
     .arrest-section {
       background-color: var(--ink);
@@ -967,7 +1023,7 @@
         неговата история, не своята.
       </p>
 
-      <div class="photo-grid">
+      <div class="family-grid">
 
         <figure class="photo-pair fade-in">
           <div class="photo-pair-images">
