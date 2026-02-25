@@ -305,7 +305,7 @@
     /* ─── PHOTO GRID — PAIRS ─── */
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
       gap: 4rem 3rem;
       margin-top: 3rem;
     }
@@ -1241,11 +1241,11 @@
     </p>
     <p class="footer-note" style="margin-top: 1rem;">
       Коментари и въпроси:
-      <a href="mailto:petrow.mario@abv.bg" style="color: var(--gold); text-decoration: none; letter-spacing: 0.05em;">petrow.mario@abv.bg</a>
+      <a href="/cdn-cgi/l/email-protection#5c2c39282e332b72313d2e35331c3d3e2a723e3b" style="color: var(--gold); text-decoration: none; letter-spacing: 0.05em;"><span class="__cf_email__" data-cfemail="f7879283859880d99a96859e98b7969581d99590">[email&#160;protected]</span></a>
     </p>
   </footer>
 
-  <script>
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // Intersection observer for scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -1255,14 +1255,4 @@
       });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.fade-in, .timeline-item').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Stagger timeline items
-    document.querySelectorAll('.timeline-item').forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.08}s`;
-    });
-  </script>
-</body>
-</html>
+    document.querySelectorAll('.fade-in, .timeline-i
