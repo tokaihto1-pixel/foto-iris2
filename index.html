@@ -1,14 +1,33 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Фото ИРИС — Иринка Чобанова</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+SC:wght@300;400;600&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Фото ИРИС — Иринка Чобанова | Photo IRIS - Irinka Chobanova</title>
+  
+  <!-- SEO & Social -->
+  <meta name="description" content="Иринка Стоянова Чобанова (1896-1987) - българска фотографка, работила половин век в сърцето на София. A tribute to a pioneering Bulgarian female photographer.">
+  <meta name="keywords" content="Иринка Чобанова, Фото ИРИС, Bulgarian photographer, Sofia photography, female photographer">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Фото ИРИС — Иринка Чобанова">
+  <meta property="og:description" content="Фотографка. Предприемач. Свидетел на история. 56 години пред обектива на историята.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="bg_BG">
+  <meta property="og:image" content="https://tokaihto1-pixel.github.io/foto-iris/irinka_1965-1.jpg">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Фото ИРИС — Иринка Чобанова">
+  <meta name="twitter:description" content="56 години пред обектива на историята">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Cormorant+SC:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
+    /* ═══ CSS VARIABLES ═══ */
     :root {
       --ink: #1a1510;
       --paper: #f4ede0;
@@ -20,9 +39,15 @@
       --dark: #0e0b08;
     }
 
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
 
-    html { scroll-behavior: smooth; }
+    html { 
+      scroll-behavior: smooth; 
+    }
 
     body {
       background-color: var(--paper);
@@ -44,25 +69,139 @@
       opacity: 0.5;
     }
 
+    /* ═══ NAVIGATION ═══ */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+      padding: 1.25rem 0;
+    }
 
-    /* ─── LANG SWITCHER ─── */
-    .lang-switcher { position: fixed; top: 1.2rem; right: 1.5rem; z-index: 10000; display: flex; background: var(--dark); border: 1px solid var(--gold); overflow: hidden; }
-    .lang-btn { font-family: 'Cormorant SC', serif; font-size: 0.75rem; letter-spacing: 0.15em; padding: 0.4rem 0.9rem; border: none; background: transparent; color: var(--faded); cursor: pointer; transition: background 0.2s, color 0.2s; }
-    .lang-btn.active { background: var(--gold); color: var(--dark); }
-    .lang-btn:hover:not(.active) { color: var(--gold); }
+    .nav.scrolled {
+      background: rgba(244, 237, 224, 0.95);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+      padding: 0.75rem 0;
+    }
 
-    /* ─── LOGO BANNER ─── */
-    .logo-banner { background: var(--dark); display: flex; justify-content: center; align-items: center; padding: 6rem 2rem; border-bottom: 2px solid #2a2218; overflow: hidden; }
-    .logo-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; width: 100%; }
-    .logo-deco-top { display: flex; align-items: center; gap: 1rem; width: 100%; color: var(--gold); font-size: 2rem; opacity: 0.7; }
-    .logo-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.6; }
-    .logo-foto { font-family: 'Cormorant SC', serif; font-size: 6rem; font-weight: 300; letter-spacing: 1em; color: var(--faded); text-indent: 1em; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
-    .logo-iris { position: relative; line-height: 1; }
-    .logo-iris-shadow { font-family: 'Playfair Display', serif; font-size: clamp(12rem, 28vw, 22rem); font-weight: 900; font-style: italic; letter-spacing: 0.15em; color: transparent; -webkit-text-stroke: 2px #5a2d0e; position: absolute; top: 18px; left: 18px; user-select: none; }
-    .logo-iris-main { font-family: 'Playfair Display', serif; font-size: clamp(12rem, 28vw, 22rem); font-weight: 900; font-style: italic; letter-spacing: 0.15em; color: var(--gold); position: relative; text-shadow: 3px 3px 0px #7a3d1f, 7px 7px 0px #5a2d0e, 12px 12px 0px #3a1d08, 18px 18px 40px rgba(0,0,0,0.98), 0 0 100px rgba(184,146,58,0.4), 0 0 200px rgba(184,146,58,0.15); }
-    .logo-sub { font-family: 'Cormorant SC', serif; font-size: 3rem; letter-spacing: 0.25em; color: #b8923a; margin-top: 1.2rem; text-align: center; text-shadow: 2px 2px 0px #3a1d08, 5px 5px 12px rgba(0,0,0,0.95), 0 0 40px rgba(184,146,58,0.3); }
+    .nav-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-    /* ─── HERO ─── */
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--ink);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-logo:hover {
+      color: var(--rust);
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sepia);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--rust);
+    }
+
+    .lang-toggle {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid var(--faded);
+      border-radius: 4px;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .lang-toggle:hover {
+      border-color: var(--gold);
+    }
+
+    .lang-toggle span {
+      font-size: 1.1rem;
+    }
+
+    .lang-toggle .lang-text {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--sepia);
+    }
+
+    /* Mobile nav */
+    .nav-mobile-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    .nav-mobile-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      margin: 5px 0;
+      transition: all 0.3s;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--paper);
+        flex-direction: column;
+        padding: 1rem 2rem 2rem;
+        gap: 1rem;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-mobile-toggle {
+        display: block;
+      }
+    }
+
+    /* ═══ HERO ═══ */
     .hero {
       min-height: 100vh;
       display: grid;
@@ -190,30 +329,10 @@
       color: var(--sepia);
       padding: 0.4rem 1rem;
       margin-top: 2rem;
+      animation: fadeUp 1.4s ease 0.6s both;
     }
 
-    /* ─── DIVIDER ─── */
-    .divider {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin: 4rem 0 3rem;
-      color: var(--sepia);
-    }
-    .divider::before, .divider::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--faded), transparent);
-    }
-    .divider-ornament {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
-      color: var(--gold);
-      letter-spacing: 0.3em;
-    }
-
-    /* ─── SECTIONS ─── */
+    /* ═══ SECTIONS ═══ */
     .section {
       max-width: 1200px;
       margin: 0 auto;
@@ -238,7 +357,58 @@
       margin-bottom: 2.5rem;
     }
 
-    /* ─── TIMELINE ─── */
+    /* ═══ BIOGRAPHY ═══ */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .bio-text p {
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+      color: #3a2e1e;
+    }
+
+    .bio-text p:first-child::first-letter {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 900;
+      float: left;
+      line-height: 0.75;
+      margin: 0.1rem 0.2rem 0 0;
+      color: var(--rust);
+    }
+
+    .sidebar-fact {
+      border-left: 3px solid var(--gold);
+      padding: 1rem 1.25rem;
+      background: var(--cream);
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar-fact-label {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      color: var(--sepia);
+      margin-bottom: 0.3rem;
+    }
+
+    .sidebar-fact-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      color: var(--ink);
+      font-weight: 700;
+    }
+
+    /* ═══ TIMELINE ═══ */
+    .timeline-section {
+      background: var(--cream);
+      padding: 5rem 0;
+    }
+
     .timeline {
       position: relative;
       padding-left: 2rem;
@@ -301,7 +471,7 @@
       color: var(--ink);
     }
 
-    /* ─── PHOTO STRIP ─── */
+    /* ═══ PHOTO STRIP ═══ */
     .photo-strip {
       background-color: var(--dark);
       padding: 5rem 0;
@@ -320,68 +490,24 @@
     }
     .photo-strip .section-label { color: var(--gold); }
 
-    /* ─── PHOTO GRID — PAIRS ─── */
+    /* ═══ PHOTO GRID ═══ */
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-      gap: 4rem 3rem;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 3rem 2rem;
       margin-top: 3rem;
     }
 
-    /* Each pair: front + back side by side */
-    .photo-pair {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .photo-pair-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem;
-    }
-
-    .photo-pair-images img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: sepia(20%) contrast(1.05) brightness(0.92);
-      transition: filter 0.4s ease;
-    }
-
-    .photo-pair-images img:hover {
-      filter: sepia(5%) contrast(1.08) brightness(1.0);
-    }
-
-    /* Single image (no back) */
-    .photo-pair-images.single img {
-      grid-column: 1 / -1;
-      max-width: 60%;
-      margin: 0 auto;
-    }
-
-    .photo-pair figcaption {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.82rem;
-      letter-spacing: 0.18em;
-      color: var(--sepia);
-      text-align: center;
-    }
-
-    .photo-pair .back-note {
-      font-family: 'EB Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: #4a3520;
-      text-align: center;
-      line-height: 1.55;
-    }
-
-    /* Legacy .photo-item for family section */
     .photo-item {
       display: flex;
       flex-direction: column;
       gap: 0.6rem;
+      cursor: pointer;
+    }
+
+    .photo-item .photo-wrapper {
+      position: relative;
+      overflow: hidden;
     }
 
     .photo-item img {
@@ -389,11 +515,12 @@
       height: auto;
       display: block;
       filter: sepia(20%) contrast(1.05) brightness(0.92);
-      transition: filter 0.4s ease;
+      transition: filter 0.4s ease, transform 0.4s ease;
     }
 
     .photo-item:hover img {
       filter: sepia(5%) contrast(1.08) brightness(1.0);
+      transform: scale(1.02);
     }
 
     .photo-item figcaption {
@@ -407,122 +534,22 @@
     .photo-item .back-note {
       font-family: 'EB Garamond', serif;
       font-style: italic;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #4a3520;
       text-align: center;
       line-height: 1.55;
     }
 
-    /* ─── BIOGRAPHY ─── */
-    .bio-grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 5rem;
-      align-items: start;
+    .photo-strip .photo-item figcaption {
+      color: var(--faded);
     }
 
-    .bio-text p {
-      margin-bottom: 1.5rem;
-      font-size: 1.05rem;
-      color: #3a2e1e;
+    .photo-strip .photo-item .back-note {
+      color: var(--faded);
+      opacity: 0.85;
     }
 
-    .bio-text p:first-child::first-letter {
-      font-family: 'Playfair Display', serif;
-      font-size: 4.5rem;
-      font-weight: 900;
-      float: left;
-      line-height: 0.75;
-      margin: 0.1rem 0.2rem 0 0;
-      color: var(--rust);
-    }
-
-    .sidebar-fact {
-      border-left: 3px solid var(--gold);
-      padding: 1.5rem;
-      background: var(--cream);
-      margin-bottom: 2rem;
-    }
-
-    .sidebar-fact-label {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      color: var(--sepia);
-      margin-bottom: 0.5rem;
-    }
-
-    .sidebar-fact-value {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.1rem;
-      color: var(--ink);
-      font-weight: 700;
-    }
-
-    /* ─── FAMILY GRID — 1 pair per row, large ─── */
-    .family-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 5rem;
-      margin-top: 3rem;
-    }
-
-    .family-grid .photo-pair {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      max-width: 900px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .family-grid .photo-pair-images {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
-
-    .family-grid .photo-pair-images img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: sepia(20%) contrast(1.05) brightness(0.92);
-      transition: filter 0.4s ease;
-    }
-
-    .family-grid .photo-pair-images img:hover {
-      filter: sepia(5%) contrast(1.1) brightness(1.0);
-    }
-
-    .family-grid figcaption {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.9rem;
-      letter-spacing: 0.2em;
-      color: var(--sepia);
-      text-align: center;
-    }
-
-    .family-grid .back-note {
-      font-family: 'EB Garamond', serif;
-      font-style: italic;
-      font-size: 1.15rem;
-      color: #2e1f0e;
-      text-align: center;
-      line-height: 1.65;
-      max-width: 750px;
-      margin: 0 auto;
-      border-top: 1px solid var(--faded);
-      padding-top: 1rem;
-    }
-
-
-    /* Portrait photos in family-grid - full width of container */
-    .family-grid .photo-pair-images img {
-      width: 100%;
-      max-width: 100%;
-    }
-
-    /* ─── ARREST SECTION ─── */
+    /* ═══ ARREST SECTION ═══ */
     .arrest-section {
       background-color: var(--ink);
       padding: 5rem 2rem;
@@ -553,7 +580,7 @@
       margin: 0 auto;
     }
 
-    /* ─── LEGACY ─── */
+    /* ═══ LEGACY ═══ */
     .legacy-stat {
       display: flex;
       flex-direction: column;
@@ -590,97 +617,28 @@
       border-left: 1px solid var(--faded);
     }
 
-    /* ─── PHOTO GRID ─── */
-    .photo-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-      gap: 4rem 3rem;
-      margin-top: 3rem;
-    }
-
-    .photo-item {
+    /* ═══ DIVIDER ═══ */
+    .divider {
       display: flex;
-      flex-direction: column;
-    }
-
-    .photo-item img {
-      width: 100%;
-      height: auto;
-      display: block;
-      filter: sepia(20%) contrast(1.05) brightness(0.92);
-      transition: filter 0.4s ease;
-    }
-
-    .photo-item:hover img {
-      filter: sepia(5%) contrast(1.08) brightness(1.0);
-    }
-
-    .photo-item figcaption {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.8rem;
-      letter-spacing: 0.2em;
-      color: var(--faded);
-      margin-top: 0.75rem;
-      text-align: center;
-    }
-
-    .photo-item .back-note {
-      font-family: 'EB Garamond', serif;
-      font-style: italic;
-      font-size: 1rem;
-      color: #c9b89a;
-      text-align: center;
-      margin-top: 0.5rem;
-      line-height: 1.55;
-      opacity: 0.85;
-    }
-
-    /* ─── STAMP CARDS ─── */
-    .stamp-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-
-    .stamp-card {
-      background: #fff;
-      border: 1px solid var(--faded);
-      overflow: hidden;
-    }
-
-    .stamp-card img {
-      width: 100%;
-      height: 260px;
-      object-fit: contain;
-      object-position: center;
-      background: #f9f4ec;
-      padding: 1rem;
-      display: block;
-      filter: sepia(10%);
-    }
-
-    .stamp-info {
-      padding: 1rem 1.2rem;
-      border-top: 1px solid var(--faded);
-      background: var(--cream);
-    }
-
-    .stamp-name {
-      font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--ink);
-    }
-
-    .stamp-address {
-      font-family: 'Cormorant SC', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.15em;
+      align-items: center;
+      gap: 1rem;
+      margin: 4rem 0 3rem;
       color: var(--sepia);
-      margin-top: 0.3rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--faded), transparent);
+    }
+    .divider-ornament {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      letter-spacing: 0.3em;
     }
 
-    /* ─── FOOTER ─── */
+    /* ═══ FOOTER ═══ */
     footer {
       background-color: var(--dark);
       padding: 3rem 2rem;
@@ -719,7 +677,139 @@
       margin: 0 auto;
     }
 
-    /* ─── ANIMATIONS ─── */
+    .footer-note a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .footer-note a:hover {
+      text-decoration: underline;
+    }
+
+    .back-to-top {
+      margin-top: 2rem;
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      color: var(--sepia);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .back-to-top:hover {
+      color: var(--gold);
+    }
+
+    /* ═══ BACK TO TOP BUTTON ═══ */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      background: var(--rust);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 90;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: var(--gold);
+    }
+
+    /* ═══ LIGHTBOX ═══ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .lightbox.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .lightbox-content {
+      max-width: 90vw;
+      max-height: 90vh;
+      position: relative;
+      text-align: center;
+    }
+
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 80vh;
+      object-fit: contain;
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+    }
+
+    .lightbox.active .lightbox-img {
+      transform: scale(1);
+    }
+
+    .lightbox-caption {
+      font-family: 'Cormorant SC', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
+      color: var(--faded);
+      margin-top: 1rem;
+      text-transform: uppercase;
+    }
+
+    .lightbox-note {
+      font-family: 'EB Garamond', serif;
+      font-style: italic;
+      color: var(--cream);
+      margin-top: 0.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      transition: color 0.3s;
+      z-index: 10;
+    }
+
+    .lightbox-close:hover {
+      color: var(--gold);
+    }
+
+    /* ═══ ANIMATIONS ═══ */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(30px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -735,8 +825,16 @@
       transform: translateY(0);
     }
 
-    /* ─── RESPONSIVE ─── */
+    /* ═══ RESPONSIVE ═══ */
     @media (max-width: 768px) {
+      body {
+        font-size: 16px;
+      }
+      
+      body::before {
+        opacity: 0.3;
+      }
+
       .hero {
         grid-template-columns: 1fr;
         min-height: auto;
@@ -753,6 +851,9 @@
         grid-template-columns: 1fr;
         gap: 2rem;
       }
+      .bio-text p:first-child::first-letter {
+        font-size: 3rem;
+      }
       .stats-row {
         grid-template-columns: 1fr;
         gap: 2rem;
@@ -762,432 +863,361 @@
         border-top: 1px solid var(--faded);
         padding-top: 2rem;
       }
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+      .legacy-number {
+        font-size: 3.5rem;
+      }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══ LANG SWITCHER ═══ -->
-  <div class="lang-switcher">
-    <button class="lang-btn active" onclick="setLang('bg')">БГ</button>
-    <button class="lang-btn" onclick="setLang('en')">EN</button>
-  </div>
+  <!-- ═══ NAVIGATION ═══ -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">Фото <span>ИРИС</span></a>
+      
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" data-bg="Начало" data-en="Home">Начало</a></li>
+        <li><a href="#biography" data-bg="Биография" data-en="Biography">Биография</a></li>
+        <li><a href="#timeline" data-bg="Хронология" data-en="Timeline">Хронология</a></li>
+        <li><a href="#portraits" data-bg="Портрети" data-en="Portraits">Портрети</a></li>
+        <li><a href="#family" data-bg="Семейството" data-en="Family">Семейството</a></li>
+        <li><a href="#legacy" data-bg="Наследство" data-en="Legacy">Наследство</a></li>
+      </ul>
 
-  <!-- ═══ LOGO BANNER ═══ -->
-  <div class="logo-banner">
-    <div class="logo-inner">
-      <div class="logo-deco-top"><span>&#10086;</span><span class="logo-line"></span><span>&#10086;</span></div>
-      <div class="logo-foto">ФОТО</div>
-      <div class="logo-iris">
-        <span class="logo-iris-shadow">ИРИС</span>
-        <span class="logo-iris-main">ИРИС</span>
-      </div>
-      <div class="logo-sub">СОФИЯ &nbsp;·&nbsp; БУЛ. ВИТОША 20 &nbsp;·&nbsp; 1930 — 1986</div>
-      <div class="logo-deco-top"><span>&#10086;</span><span class="logo-line"></span><span>&#10086;</span></div>
+      <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+        <span id="langFlag">🇬🇧</span>
+        <span class="lang-text" id="langText">EN</span>
+      </button>
+
+      <button class="nav-mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
-  </div>
+  </nav>
 
   <!-- ═══ HERO ═══ -->
-  <section class="hero">
+  <section class="hero" id="hero">
     <div class="hero-left">
-      <img
-        class="hero-photo"
-        src="https://tokaihto1.wordpress.com/wp-content/uploads/2024/12/irinka_1965-1.jpg"
-        alt="Иринка Чобанова, 1965"
-      />
+      <img class="hero-photo" src="https://tokaihto1-pixel.github.io/foto-iris/irinka_1965-1.jpg" alt="Иринка Чобанова, 1965">
       <div class="hero-text">
-        <p class="hero-eyebrow">Фото ИРИС · София</p>
-        <h1 class="hero-name">Иринка<br/><em>Чобанова</em></h1>
+        <p class="hero-eyebrow" data-bg="Фото ИРИС · София" data-en="Photo IRIS · Sofia">Фото ИРИС · София</p>
+        <h1 class="hero-name">Иринка<br><em>Чобанова</em></h1>
         <p class="hero-dates">1896 — 1987</p>
       </div>
     </div>
     <div class="hero-right">
-      <p class="hero-intro">
-        Фотографка. Предприемач. Свидетел на история.
-        Жена, работила с обектив половин век в сърцето на Sofia.
+      <p class="hero-intro" data-bg="Фотографка. Предприемач. Свидетел на история. Жена, работила с обектив половин век в сърцето на София." data-en="Photographer. Entrepreneur. Witness to history. A woman who worked behind a lens for half a century in the heart of Sofia.">
+        Фотографка. Предприемач. Свидетел на история. Жена, работила с обектив половин век в сърцето на София.
       </p>
-      <p class="hero-body">
-        Иринка Стоянова Чобанова е българска частна фотографка от ХХ век.
-        От 1909 г., когато чиракува на тринадесет години, до 1986 г.,
-        когато затваря ателието си на деветдесет — нейният живот е история
-        на упоритост, занаят и светлина.
+      <p class="hero-body" data-bg="Иринка Стоянова Чобанова е българска частна фотографка от ХХ век. От 1909 г., когато чиракува на тринадесет години, до 1986 г., когато затваря ателието си на деветдесет — нейният живот е история на упоритост, занаят и светлина." data-en="Irinka Stoyanova Chobanova was a Bulgarian private photographer of the 20th century. From 1909, when she began her apprenticeship at thirteen, until 1986, when she closed her studio at ninety — her life is a story of persistence, craft, and light.">
+        Иринка Стоянова Чобанова е българска частна фотографка от ХХ век. От 1909 г., когато чиракува на тринадесет години, до 1986 г., когато затваря ателието си на деветдесет — нейният живот е история на упоритост, занаят и светлина.
       </p>
-      <div class="studio-name">Фото ИРИС · бул. Витоша 20 · София</div>
+      <div class="studio-name" data-bg="Фото ИРИС · бул. Витоша 20 · София" data-en="Photo IRIS · 20 Vitosha Blvd · Sofia">Фото ИРИС · бул. Витоша 20 · София</div>
     </div>
   </section>
 
   <!-- ═══ BIOGRAPHY ═══ -->
-  <div class="section">
-    <p class="section-label fade-in"><span class="lang-bg">Биография</span><span class="lang-en">Biography</span></p>
-    <h2 class="section-title fade-in"><span class="lang-bg">Животът зад обектива</span><span class="lang-en">A Life Behind the Lens</span></h2>
+  <div class="section" id="biography">
+    <p class="section-label fade-in" data-bg="Биография" data-en="Biography">Биография</p>
+    <h2 class="section-title fade-in" data-bg="Животът зад обектива" data-en="The Life Behind the Lens">Животът зад обектива</h2>
 
     <div class="bio-grid">
       <div class="bio-text fade-in">
-<p class="lang-bg">Иринка Чобанова е родена през 1896 г. в Лом, в семейството на поручик Стоян Тодоров Чобанов (роден ок. 1870 г. в Хасан Факъх, Османска Империя — днес с. Камбурово) и Кина Кадиева Чобанова (родена в Попово). В началото на ХХ век семейството се премества във Варна. Като първо от седем деца, тя рано напуска училище, за да помага на семейството и да учи занаят.</p><p class="lang-en">Irinka Chobanova was born in 1896 in Lom, into the family of Lieutenant Stoyan Todorov Chobanov (born c. 1870 in Hasan Fakah, Ottoman Empire — today the village of Kamburovo) and Kina Kadieva Chobanova (born in Popovo). In the early 20th century the family moved to Varna. As the eldest of seven children, she left school early to help the family and learn a trade.</p>
-<p class="lang-bg">От 1909 г. чиракува в ателиетата на <strong>Франц (Франсуа) Бауер</strong> и <strong>Захарий Жейнов</strong> във Варна — двама от забележителните фотографи на тогавашна България. Именно там тя овладява изкуството на студийната фотография, работейки с тежки стъклени негативи и деликатна химия на тъмната стая.</p><p class="lang-en">From 1909 she apprenticed in the studios of <strong>Franz (Francois) Bauer</strong> and <strong>Zachary Zheinov</strong> in Varna — two of Bulgaria's most distinguished photographers. There she mastered studio photography, working with heavy glass negatives and the delicate chemistry of the darkroom.</p>
-<p class="lang-bg">В началото на 20-те години тя отваря собствено ателие <strong>„Фото Добруджа"</strong> в Хасково — смела стъпка за млада жена в тогавашното общество. Около 1930 г. пренася бизнеса в София, на бул. „Царица Йоанна" (днес бул. „Витоша" № 20), между Отечествен Фронт и кафене „Бразилия".</p><p class="lang-en">In the early 1920s she opened her own studio, <strong>"Photo Dobrudzha"</strong>, in Haskovo — a bold step for a young woman. Around 1930 she moved to Sofia, on Blvd. "Tsaritsa Yoanna" (today Blvd. Vitosha No. 20), between the Fatherland Front building and the "Brasil" cafe.</p>
-<p class="lang-bg">В довоенните години ателието е „гъчкано от немски офицери" — по нейни собствени думи. Тя свободно говорела на немски и турски език, което правело ателието привлекателно за чуждестранните гости на столицата.</p><p class="lang-en">In the pre-war years the studio was "packed with German officers" — in her own words. She spoke German and Turkish fluently, making the studio appealing to foreign visitors to the capital.</p>
-<p class="lang-bg">След 9 септември 1944 г. преименува ателието на <strong>„Фото Ирис"</strong>, което продължава да работи като частно ателие на същия адрес до 1980 г. По-късно се премества на бул. „Скобелев" № 2, където тя продължава работата си до навършване на <strong>90-годишна възраст</strong> — 1986 г.</p><p class="lang-en">After 9 September 1944 she renamed the studio <strong>"Photo Iris"</strong>, continuing at the same address until 1980. It later moved to Blvd. "Skobelev" No. 2, where she kept working until the age of <strong>90</strong> — 1986.</p>
-<p class="lang-bg">Работела предимно с <em>стар германски фотоапарат на триножник от края на 19 век</em>. Специализирала в бързи снимки за документи и паспорти — шест снимки за 1 лев, готови на следващия ден. За спешни случаи — услуга за 1 час за 2 лева.</p><p class="lang-en">She worked with <em>an old German large-format camera on a tripod from the late 19th century</em>. She specialised in document and passport photographs — six prints for 1 lev, ready the next day. For urgent cases — one-hour service for 2 leva.</p>
+        <p data-bg="Иринка Чобанова е родена през 1896 г. в Лом, в семейството на поручик Стоян Тодоров Чобанов (роден ок. 1870 г. в Хасан Факъх, околия Осман Пазар, окръг Ески Джума, Османска Империя — днес с. Камбурово) и Кина Кадиева Чобанова (родена в Попово, Османска Империя). В началото на ХХ век семейството се премества във Варна. Като първо от седем деца, тя рано напуска училище, за да помага на семейството и да учи занаят." data-en="Irinka Chobanova was born in 1896 in Lom, into the family of Lieutenant Stoyan Todorov Chobanov (born circa 1870 in Hasan Fakih, Ottoman Empire — now Kamburovo village) and Kina Kadieva Chobanova (born in Popovo, Ottoman Empire). In the early 20th century, the family moved to Varna. As the eldest of seven children, she left school early to help the family and learn a trade.">
+          Иринка Чобанова е родена през 1896 г. в Лом, в семейството на поручик Стоян Тодоров Чобанов (роден ок. 1870 г. в Хасан Факъх, околия Осман Пазар, окръг Ески Джума, Османска Империя — днес с. Камбурово) и Кина Кадиева Чобанова (родена в Попово, Османска Империя). В началото на ХХ век семейството се премества във Варна. Като първо от седем деца, тя рано напуска училище, за да помага на семейството и да учи занаят.
+        </p>
+        <p data-bg="От 1909 г. чиракува в ателиетата на Франц (Франсуа) Бауер и Захарий Жейнов във Варна — двама от забележителните фотографи на тогавашна България. Именно там тя овладява изкуството на студийната фотография, работейки с тежки стъклени негативи и деликатна химия на тъмната стая." data-en="From 1909, she apprenticed in the studios of Franz (François) Bauer and Zahari Zheinov in Varna — two of the remarkable photographers of Bulgaria at that time. There she mastered the art of studio photography, working with heavy glass negatives and delicate darkroom chemistry.">
+          От 1909 г. чиракува в ателиетата на Франц (Франсуа) Бауер и Захарий Жейнов във Варна — двама от забележителните фотографи на тогавашна България. Именно там тя овладява изкуството на студийната фотография, работейки с тежки стъклени негативи и деликатна химия на тъмната стая.
+        </p>
+        <p data-bg="В началото на 20-те години тя отваря собствено ателие „Фото Добруджа" в Хасково — смела стъпка за млада жена в тогавашното общество. Около 1930 г. пренася бизнеса в София, на бул. „Царица Йоанна" (днес бул. „Витоша" № 20), между Отечествен Фронт и кафене „Бразилия"." data-en='In the early 1920s, she opened her own studio "Photo Dobrudzha" in Haskovo — a bold step for a young woman in that society. Around 1930, she moved the business to Sofia, on "Tsaritsa Yoanna" Boulevard (today Vitosha Blvd No. 20), between Otechestven Front and Café "Brazil".'>
+          В началото на 20-те години тя отваря собствено ателие „Фото Добруджа" в Хасково — смела стъпка за млада жена в тогавашното общество. Около 1930 г. пренася бизнеса в София, на бул. „Царица Йоанна" (днес бул. „Витоша" № 20), между Отечествен Фронт и кафене „Бразилия".
+        </p>
+        <p data-bg="В довоенните години ателието е „гъчкано от немски офицери" — по нейни собствени думи. Тя свободно говорела на немски и турски език, което правело ателието привлекателно за чуждестранните гости на столицата." data-en='In the pre-war years, the studio was "packed with German officers" — in her own words. She spoke German and Turkish fluently, which made the studio attractive to foreign guests of the capital.'>
+          В довоенните години ателието е „гъчкано от немски офицери" — по нейни собствени думи. Тя свободно говорела на немски и турски език, което правело ателието привлекателно за чуждестранните гости на столицата.
+        </p>
+        <p data-bg="След 9 септември 1944 г. преименува ателието на „Фото Ирис", което продължава да работи като частно ателие на същия адрес до 1980 г. По-късно се премества на бул. „Скобелев" № 2, където тя продължава работата си до навършване на 90-годишна възраст — 1986 г." data-en='After September 9, 1944, she renamed the studio "Photo Iris", which continued to operate as a private studio at the same address until 1980. Later she moved to 2 Skobelev Blvd, where she continued working until the age of 90 — 1986.'>
+          След 9 септември 1944 г. преименува ателието на „Фото Ирис", което продължава да работи като частно ателие на същия адрес до 1980 г. По-късно се премества на бул. „Скобелев" № 2, където тя продължава работата си до навършване на 90-годишна възраст — 1986 г.
+        </p>
+        <p data-bg="Работила предимно с стар германски фотоапарат на триножник от края на 19 век. Специализирала в бързи снимки за документи и паспорти — шест снимки за 1 лев, готови на следващия ден. За спешни случаи — услуга за 1 час за 2 лева." data-en="She worked mainly with an old German camera on a tripod from the late 19th century. She specialized in quick photos for documents and passports — six photos for 1 lev, ready the next day. For urgent cases — 1-hour service for 2 leva.">
+          <em>Работила предимно с стар германски фотоапарат на триножник от края на 19 век. Специализирала в бързи снимки за документи и паспорти — шест снимки за 1 лев, готови на следващия ден. За спешни случаи — услуга за 1 час за 2 лева.</em>
+        </p>
       </div>
 
-      <aside>
-        <div class="sidebar-fact fade-in">
-          <div class="sidebar-fact-label"><span class="lang-bg">Роден град</span><span class="lang-en">Birthplace</span></div>
+      <aside class="fade-in">
+        <div class="sidebar-fact">
+          <div class="sidebar-fact-label" data-bg="Роден град" data-en="Birthplace">Роден град</div>
           <div class="sidebar-fact-value">Лом, 1896</div>
         </div>
-        <div class="sidebar-fact fade-in">
-          <div class="sidebar-fact-label"><span class="lang-bg">Баща</span><span class="lang-en">Father</span></div>
-          <div class="sidebar-fact-value">Стоян Чобанов, р. Хасан Факъх - сег.Камбурово (~1870)</div>
+        <div class="sidebar-fact">
+          <div class="sidebar-fact-label" data-bg="Баща" data-en="Father">Баща</div>
+          <div class="sidebar-fact-value" data-bg="Стоян Чобанов, р. Хасан Факъх (~1870)" data-en="Stoyan Chobanov, b. Hasan Fakih (~1870)">Стоян Чобанов, р. Хасан Факъх (~1870)</div>
         </div>
-        <div class="sidebar-fact fade-in">
-          <div class="sidebar-fact-label"><span class="lang-bg">Майка</span><span class="lang-en">Mother</span></div>
-          <div class="sidebar-fact-value">Кина Кадиева, р. Попово</div>
+        <div class="sidebar-fact">
+          <div class="sidebar-fact-label" data-bg="Майка" data-en="Mother">Майка</div>
+          <div class="sidebar-fact-value" data-bg="Кина Кадиева, р. Попово" data-en="Kina Kadieva, b. Popovo">Кина Кадиева, р. Попово</div>
         </div>
-        <div class="sidebar-fact fade-in">
-          <div class="sidebar-fact-label"><span class="lang-bg">Чиракуване</span><span class="lang-en">Apprenticeship</span></div>
-          <div class="sidebar-fact-value"><span class="lang-bg">Варна, от 1909 г.</span><span class="lang-en">Varna, from 1909</span></div>
+        <div class="sidebar-fact">
+          <div class="sidebar-fact-label" data-bg="Чиракуване" data-en="Apprenticeship">Чиракуване</div>
+          <div class="sidebar-fact-value" data-bg="Варна, от 1909 г." data-en="Varna, from 1909">Варна, от 1909 г.</div>
         </div>
-        <div class="sidebar-fact fade-in">
-          <div class="sidebar-fact-label"><span class="lang-bg">Първо ателие</span><span class="lang-en">First Studio</span></div>
-          <div class="sidebar-fact-value"><span class="lang-bg">Хасково, ~1920</span><span class="lang-en">Haskovo, ~1920</span></div>
+        <div class="sidebar-fact">
+          <div class="sidebar-fact-label" data-bg="Първо ателие" data-en="First Studio">Първо ателие</div>
+          <div class="sidebar-fact-value" data-bg="Хасково, ~1920" data-en="Haskovo, ~1920">Хасково, ~1920</div>
         </div>
-        <div class="sidebar-fact fade-in">
-          <div class="sidebar-fact-label"><span class="lang-bg">Адрес — София</span><span class="lang-en">Address — Sofia</span></div>
-          <div class="sidebar-fact-value"><span class="lang-bg">бул. Витоша 20</span><span class="lang-en">Blvd. Vitosha 20</span></div>
+        <div class="sidebar-fact">
+          <div class="sidebar-fact-label" data-bg="Адрес — София" data-en="Address — Sofia">Адрес — София</div>
+          <div class="sidebar-fact-value" data-bg="бул. Витоша 20" data-en="20 Vitosha Blvd">бул. Витоша 20</div>
         </div>
-        <div class="sidebar-fact fade-in">
-          <div class="sidebar-fact-label"><span class="lang-bg">Езици</span><span class="lang-en">Languages</span></div>
-          <div class="sidebar-fact-value"><span class="lang-bg">Български, Немски, Турски</span><span class="lang-en">Bulgarian, German, Turkish</span></div>
+        <div class="sidebar-fact">
+          <div class="sidebar-fact-label" data-bg="Езици" data-en="Languages">Езици</div>
+          <div class="sidebar-fact-value" data-bg="Български, Немски, Турски" data-en="Bulgarian, German, Turkish">Български, Немски, Турски</div>
         </div>
-        <div class="sidebar-fact fade-in">
-          <div class="sidebar-fact-label"><span class="lang-bg">Апарат</span><span class="lang-en">Camera</span></div>
-          <div class="sidebar-fact-value"><span class="lang-bg">Германски, триножник, края на XIX в.</span><span class="lang-en">German large-format, tripod, late 19th c.</span></div>
+        <div class="sidebar-fact">
+          <div class="sidebar-fact-label" data-bg="Апарат" data-en="Camera">Апарат</div>
+          <div class="sidebar-fact-value" data-bg="Германски, триножник, края на XIX в." data-en="German, tripod, late 19th c.">Германски, триножник, края на XIX в.</div>
         </div>
       </aside>
     </div>
   </div>
 
   <!-- ═══ TIMELINE ═══ -->
-  <div style="background: var(--cream); padding: 1px 0;">
+  <div class="timeline-section" id="timeline">
     <div class="section">
-      <p class="section-label fade-in"><span class="lang-bg">Хронология</span><span class="lang-en">Timeline</span></p>
-      <h2 class="section-title fade-in"><span class="lang-bg">Осем десетилетия занаят</span><span class="lang-en">Eight Decades of Craft</span></h2>
+      <p class="section-label fade-in" data-bg="Хронология" data-en="Timeline">Хронология</p>
+      <h2 class="section-title fade-in" data-bg="Осем десетилетия занаят" data-en="Eight Decades of Craft">Осем десетилетия занаят</h2>
 
       <div class="timeline">
         <div class="timeline-item">
           <span class="timeline-year">1896</span>
-          <div class="timeline-content lang-bg"><strong>Родена в Лом.</strong> Първо дете от седем в семейството на
-            поручик Стоян Чобанов и Кина Кадиева.</div><div class="timeline-content lang-en"><strong>Born in Lom.</strong> First of seven children of Lt. Stoyan Chobanov and Kina Kadieva.</div>
+          <div class="timeline-content" data-bg="<strong>Родена в Лом.</strong> Първо дете от седем в семейството на поручик Стоян Чобанов и Кина Кадиева." data-en="<strong>Born in Lom.</strong> First child of seven in the family of Lieutenant Stoyan Chobanov and Kina Kadieva.">
+            <strong>Родена в Лом.</strong> Първо дете от седем в семейството на поручик Стоян Чобанов и Кина Кадиева.
+          </div>
         </div>
         <div class="timeline-item">
-          <span class="timeline-year">нач. XX в.</span>
-          <div class="timeline-content lang-bg"><strong>Семейството се мести във Варна.</strong> Иринка напуска рано
-            училище, за да помага на семейството.</div><div class="timeline-content lang-en"><strong>The family moves to Varna.</strong> Irinka leaves school early to help the family.</div>
+          <span class="timeline-year" data-bg="нач. XX в." data-en="early 1900s">нач. XX в.</span>
+          <div class="timeline-content" data-bg="<strong>Семейството се мести във Варна.</strong> Иринка напуска рано училище, за да помага на семейството." data-en="<strong>Family moves to Varna.</strong> Irinka leaves school early to help the family.">
+            <strong>Семейството се мести във Варна.</strong> Иринка напуска рано училище, за да помага на семейството.
+          </div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">~1909</span>
-          <div class="timeline-content lang-bg"><strong>Начало на чиракуването.</strong> Учи фотографски занаят
-            при Франц Бауер и Захарий Жейнов във Варна —
-            на около 13 години.</div><div class="timeline-content lang-en"><strong>Apprenticeship begins.</strong> Learns photography under Franz Bauer and Zachary Zheinov in Varna — aged around 13.</div>
+          <div class="timeline-content" data-bg="<strong>Начало на чиракуването.</strong> Учи фотографски занаят при Франц Бауер и Захарий Жейнов във Варна — на около 13 години." data-en="<strong>Apprenticeship begins.</strong> Learns photography from Franz Bauer and Zahari Zheinov in Varna — at about 13 years old.">
+            <strong>Начало на чиракуването.</strong> Учи фотографски занаят при Франц Бауер и Захарий Жейнов във Варна — на около 13 години.
+          </div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">~1920</span>
-          <div class="timeline-content lang-bg"><strong>„Фото Добруджа" — Хасково.</strong> Отваря първото си
-            собствено ателие в началото на 20-те години.</div><div class="timeline-content lang-en"><strong>"Photo Dobrudzha" — Haskovo.</strong> Opens her first studio in the early 1920s.</div>
+          <div class="timeline-content" data-bg='<strong>„Фото Добруджа" — Хасково.</strong> Отваря първото си собствено ателие в началото на 20-те години.' data-en='<strong>"Photo Dobrudzha" — Haskovo.</strong> Opens her first own studio in the early 1920s.'>
+            <strong>„Фото Добруджа" — Хасково.</strong> Отваря първото си собствено ателие в началото на 20-те години.
+          </div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">~1930</span>
-          <div class="timeline-content lang-bg"><strong>„Фото Добруджа" — София.</strong> Премества се на бул.
-            „Царица Йоанна" № 20 (дн. бул. Витоша). В довоенните години
-            ателието е популярно сред немски офицери.</div><div class="timeline-content lang-en"><strong>"Photo Dobrudzha" — Sofia.</strong> Moves to Blvd. Tsaritsa Yoanna No. 20 (today Blvd. Vitosha). The studio becomes popular with German officers.</div>
+          <div class="timeline-content" data-bg='<strong>„Фото Добруджа" — София.</strong> Премества се на бул. „Царица Йоанна" № 20 (дн. бул. Витоша). В довоенните години ателието е популярно сред немски офицери.' data-en='<strong>"Photo Dobrudzha" — Sofia.</strong> Moves to 20 "Tsaritsa Yoanna" Blvd (now Vitosha Blvd). In pre-war years, the studio is popular among German officers.'>
+            <strong>„Фото Добруджа" — София.</strong> Премества се на бул. „Царица Йоанна" № 20 (дн. бул. Витоша). В довоенните години ателието е популярно сред немски офицери.
+          </div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">1944</span>
-          <div class="timeline-content lang-bg"><strong>Арест и затвор.</strong> Набедена за немска шпионка,
-            лежи шест месеца в Централния затвор в София. Помилвана е
-            по ходатайство на Славчо Трънски и Славчо Радомирски.</div><div class="timeline-content lang-en"><strong>Arrest and imprisonment.</strong> Falsely accused of being a German spy, she spends six months in Sofia's Central Prison. Pardoned through Slavcho Transki and Slavcho Radomirski.</div>
+          <div class="timeline-content" data-bg="<strong>Арест и затвор.</strong> Набедена за немска шпионка, лежи шест месеца в Централния затвор в София. Помилвана е по ходатайство на Славчо Трънски и Славчо Радомирски." data-en="<strong>Arrest and imprisonment.</strong> Accused of being a German spy, spends six months in Central Prison in Sofia. Pardoned through the intercession of Slavcho Transki and Slavcho Radomirski.">
+            <strong>Арест и затвор.</strong> Набедена за немска шпионка, лежи шест месеца в Централния затвор в София. Помилвана е по ходатайство на Славчо Трънски и Славчо Радомирски.
+          </div>
         </div>
         <div class="timeline-item">
-          <span class="timeline-year">сл. 1944</span>
-          <div class="timeline-content lang-bg"><strong>Преименуване на „Фото Ирис".</strong> Продължава работата
-            си на същия адрес като едно от малкото частни ателиета в НРБ.</div><div class="timeline-content lang-en"><strong>Renamed "Photo Iris".</strong> Continues at the same address as one of the few private studios in People's Republic of Bulgaria.</div>
+          <span class="timeline-year" data-bg="сл. 1944" data-en="post-1944">сл. 1944</span>
+          <div class="timeline-content" data-bg='<strong>Преименуване на „Фото Ирис".</strong> Продължава работата си на същия адрес като едно от малкото частни ателиета в НРБ.' data-en='<strong>Renamed to "Photo Iris".</strong> Continues working at the same address as one of the few private studios in communist Bulgaria.'>
+            <strong>Преименуване на „Фото Ирис".</strong> Продължава работата си на същия адрес като едно от малкото частни ателиета в НРБ.
+          </div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">1980</span>
-          <div class="timeline-content lang-bg"><strong>Преместване на бул. Скобелев 2.</strong> Ателието сменя
-            адреса, но продължава работа.</div><div class="timeline-content lang-en"><strong>Moves to Blvd. Skobelev 2.</strong> The studio changes address but continues.</div>
+          <div class="timeline-content" data-bg="<strong>Преместване на бул. Скобелев 2.</strong> Ателието сменя адреса, но продължава работа." data-en="<strong>Move to 2 Skobelev Blvd.</strong> The studio changes address but continues operating.">
+            <strong>Преместване на бул. Скобелев 2.</strong> Ателието сменя адреса, но продължава работа.
+          </div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">1986</span>
-          <div class="timeline-content lang-bg"><strong>Затваря ателието.</strong> На деветдесет години слага
-            капака на стария германски апарат за последен път.
-            <em>56 години непрекъснато фотографско ателие в София.</em></div><div class="timeline-content lang-en"><strong>Closes the studio.</strong> At ninety, she places the lens cap on the old German camera for the last time. <em>56 years of uninterrupted photography in Sofia.</em></div>
+          <div class="timeline-content" data-bg="<strong>Затваря ателието.</strong> На деветдесет години слага капака на стария германски апарат за последен път. <em>56 години непрекъснато фотографско ателие в София.</em>" data-en="<strong>Closes the studio.</strong> At ninety years old, she closes the shutter of the old German camera for the last time. <em>56 years of continuous photography studio in Sofia.</em>">
+            <strong>Затваря ателието.</strong> На деветдесет години слага капака на стария германски апарат за последен път. <em>56 години непрекъснато фотографско ателие в София.</em>
+          </div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">1987</span>
-          <div class="timeline-content lang-bg"><strong>Иринка Чобанова почива.</strong> Преди това, на около 85 години,
-            надписва на ръка всяка снимка от семейния албум — за своя племенник,
-            за да не се забрави откъде идва семейството.</div><div class="timeline-content lang-en"><strong>Irinka Chobanova passes away.</strong> Before her death, at around 85, she hand-annotated every photograph in the family album — for her nephew, so the family's origins would not be forgotten.</div>
+          <div class="timeline-content" data-bg="<strong>Иринка Чобанова почива.</strong> Преди това, на около 85 години, надписва на ръка всяка снимка от семейния албум — за своя племенник, за да не се забрави откъде идва семейството." data-en="<strong>Irinka Chobanova passes away.</strong> Before that, at about 85, she hand-wrote captions on every photo in the family album — for her nephew, so the family origins would not be forgotten.">
+            <strong>Иринка Чобанова почива.</strong> Преди това, на около 85 години, надписва на ръка всяка снимка от семейния албум — за своя племенник, за да не се забрави откъде идва семейството.
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- ═══ PHOTOS ═══ -->
-  <section class="photo-strip">
+  <!-- ═══ PORTRAITS ═══ -->
+  <section class="photo-strip" id="portraits">
     <div class="photo-strip-inner">
-      <p class="section-label fade-in"><span class="lang-bg">Портрети</span><span class="lang-en">Portraits</span></p>
-      <h2 class="section-title fade-in"><span class="lang-bg">Иринка през годините</span><span class="lang-en">Irinka Through the Years</span></h2>
-<p class="fade-in lang-bg" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px; font-style: italic;">Иринка приготвяла фокуса и композицията предварително, после влизала в кадъра. Близък човек — понякога нейният племенник — отварял и затварял капака на апарата. Десетилетия преди думата „selfie" да съществува.</p><p class="fade-in lang-en" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px; font-style: italic;">Irinka would prepare the focus and composition in advance, then step into the frame. A trusted person — sometimes her nephew — would open and close the shutter. Decades before the word "selfie" existed.</p>
+      <p class="section-label fade-in" data-bg="Портрети" data-en="Portraits">Портрети</p>
+      <h2 class="section-title fade-in" data-bg="Иринка през годините" data-en="Irinka Through the Years">Иринка през годините</h2>
+      <p class="fade-in" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px; font-style: italic;" data-bg="Иринка приготвяла фокуса и композицията предварително, после влизала в кадъра. Близък човек — понякога нейният племенник — отварял и затварял капака на апарата. Десетилетия преди думата „selfie" да съществува." data-en="Irinka would prepare the focus and composition in advance, then step into the frame. A close person — sometimes her nephew — would open and close the camera shutter. Decades before the word &quot;selfie&quot; existed.">
+        Иринка приготвяла фокуса и композицията предварително, после влизала в кадъра. Близък човек — понякога нейният племенник — отварял и затварял капака на апарата. Десетилетия преди думата „selfie" да съществува.
+      </p>
 
-      <div class="family-grid">
-
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="18-6.jpg" alt="Иринка 1914 — лице" />
+      <div class="photo-grid">
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/18-6.jpg', 'Варна, 1914', 'Тук съм на 18 години, снета в Варненското фото-ателие където работех в Варна')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/18-6.jpg" alt="Иринка 1914" loading="lazy">
           </div>
           <figcaption>Варна, 1914</figcaption>
           <p class="back-note">„Тук съм на 18 години, снета в Варненското фото-ателие където работех в Варна"</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="irinka_1932-1.jpg" alt="Иринка 1932 — лице" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/irinka_1932-1.jpg', 'София, 1932', 'Тук съм на 36 години.')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/irinka_1932-1.jpg" alt="Иринка 1932" loading="lazy">
           </div>
           <figcaption>София, 1932</figcaption>
           <p class="back-note">„Тук съм на 36 години."</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="irinka1940.jpg" alt="Иринка 1940 — лице" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/irinka1940.jpg', 'София, 1940', 'Irene · 1940')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/irinka1940.jpg" alt="Иринка 1940" loading="lazy">
           </div>
           <figcaption>София, 1940</figcaption>
           <p class="back-note">„Irene · 1940"</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="irinka_1943-4.jpg" alt="Иринка 1943 — лице" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/irinka_1943-4.jpg', 'София, Февруари 1943', 'Тук съм точно на 47 години, преди да отида на бала се фотографирах')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/irinka_1943-4.jpg" alt="Иринка 1943" loading="lazy">
           </div>
-          <figcaption>София, Февруари 1943 — на преди бала на офицерите</figcaption>
+          <figcaption data-bg="София, Февруари 1943 — преди бала на офицерите" data-en="Sofia, February 1943 — before the officers' ball">София, Февруари 1943 — преди бала на офицерите</figcaption>
           <p class="back-note">„Тук съм точно на 47 години, преди да отида на бала се фотографирах"</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images single">
-            <img src="irinka_1965-1.jpg" alt="Иринка 1965" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/irinka_1965-1.jpg', 'София, 1965', '')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/irinka_1965-1.jpg" alt="Иринка 1965" loading="lazy">
           </div>
           <figcaption>София, 1965</figcaption>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="Irinka_skoteto.jpg" alt="Иринка с котката — лице" />
-            <img src="Irinka_skoteto_b2.jpg" alt="Иринка с котката — гръб" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/Irinka_skoteto.jpg', 'София, ~1955–1957', 'На ти знаеш че обичам котенца — тук съм снета с базарджинчето ми')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/Irinka_skoteto.jpg" alt="Иринка с котката" loading="lazy">
           </div>
           <figcaption>София, ~1955–1957</figcaption>
           <p class="back-note">„На ти знаеш че обичам котенца — тук съм снета с базарджинчето ми"</p>
         </figure>
-
       </div>
+    </div>
+  </section>
+
+  <!-- ═══ ARREST ═══ -->
+  <section class="arrest-section">
+    <div class="arrest-inner fade-in">
+      <p class="section-label">1944</p>
+      <blockquote class="arrest-quote" data-bg="„Ателието беше гъчкано от немски офицери."" data-en='"The studio was packed with German officers."'>
+        „Ателието беше гъчкано от немски офицери."
+      </blockquote>
+      <p class="arrest-body" data-bg="Непосредствено след 9 септември 1944 г. Иринка Чобанова е набедена за немска шпионка заради клиентелата на ателието си. Тя лежи шест месеца в Централния затвор в София. Помилвана е чрез ходатайство на свои известни клиенти — Славчо Трънски и Славчо Радомирски. Освободена, тя се връща към занаята си и преименува ателието на „Фото Ирис"." data-en='Immediately after September 9, 1944, Irinka Chobanova was accused of being a German spy because of her studio clientele. She spent six months in the Central Prison in Sofia. She was pardoned through the intercession of her famous clients — Slavcho Transki and Slavcho Radomirski. Released, she returned to her craft and renamed the studio "Photo Iris".'>
+        Непосредствено след 9 септември 1944 г. Иринка Чобанова е набедена за немска шпионка заради клиентелата на ателието си. Тя лежи шест месеца в Централния затвор в София. Помилвана е чрез ходатайство на свои известни клиенти — Славчо Трънски и Славчо Радомирски. Освободена, тя се връща към занаята си и преименува ателието на „Фото Ирис".
+      </p>
     </div>
   </section>
 
   <!-- ═══ FAMILY ═══ -->
-  <div style="background: var(--cream); padding: 1px 0;">
+  <div style="background: var(--cream); padding: 1px 0;" id="family">
     <div class="section">
-      <p class="section-label fade-in"><span class="lang-bg">Семейството</span><span class="lang-en">The Family</span></p>
-      <h2 class="section-title fade-in"><span class="lang-bg">Надписано с нейна ръка</span><span class="lang-en">Written in Her Own Hand</span></h2>
-      <p class="fade-in" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;">
-        На около 85 години Иринка Чобанова надписала на ръка всяка снимка
-        от семейния албум — за своя племенник. Точно от чия гледна точка пише
-        се усеща във всяка дума: „твоя татко", „чичо ти", „леля ти". Тя разказва
-        неговата история, не своята.
+      <p class="section-label fade-in" data-bg="Семейството" data-en="Family">Семейството</p>
+      <h2 class="section-title fade-in" data-bg="Надписано с нейна ръка" data-en="Handwritten by Her">Надписано с нейна ръка</h2>
+      <p class="fade-in" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;" data-bg="На около 85 години Иринка Чобанова надписала на ръка всяка снимка от семейния албум — за своя племенник. Точно от чия гледна точка пише се усеща във всяка дума: „твоя татко", „чичо ти", „леля ти". Тя разказва неговата история, не своята." data-en="At about 85 years old, Irinka Chobanova hand-wrote captions on every photo in the family album — for her nephew. Whose perspective she writes from is felt in every word: &quot;your father&quot;, &quot;your uncle&quot;, &quot;your aunt&quot;. She tells his story, not hers.">
+        На около 85 години Иринка Чобанова надписал на ръка всяка снимка от семейния албум — за своя племенник. Точно от чия гледна точка пише се усеща във всяка дума: „твоя татко", „чичо ти", „леля ти". Тя разказва неговата история, не своята.
       </p>
 
-      <div class="family-grid">
-
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="Diado_Stoyan.jpg" alt="Дядо Стоян — лице" />
-            <img src="Diado_Stoyan_b.jpg" alt="Дядо Стоян — гръб" />
+      <div class="photo-grid">
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/Diado_Stoyan.jpg', 'Дядо Стоян Чобанов — Варна', 'Спомен от дядо ти Стоян Чобанов, фелдфебел в 8 Приморски полк — Варна')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/Diado_Stoyan.jpg" alt="Дядо Стоян" loading="lazy">
           </div>
-          <figcaption>Дядо Стоян Чобанов — Варна</figcaption>
+          <figcaption data-bg="Дядо Стоян Чобанов — Варна" data-en="Grandfather Stoyan Chobanov — Varna">Дядо Стоян Чобанов — Варна</figcaption>
           <p class="back-note">„Спомен от дядо ти Стоян Чобанов, фелдфебел в 8 Приморски полк — Варна"</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="Kina_Shteriu_Petar.jpg" alt="Баба Кина — лице" />
-            <img src="Kina_Shteriu_Petarb.jpg" alt="Баба Кина — гръб" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/Kina_Shteriu_Petar.jpg', 'Баба Кина с Щерю и малкия Петър — Варна', 'Спомен от некогашният Варненски животец мил и незабравим...')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/Kina_Shteriu_Petar.jpg" alt="Баба Кина" loading="lazy">
           </div>
-          <figcaption>Баба Кина с Щерю и малкия Петър — Варна</figcaption>
-          <p class="back-note">„Спомен от некогашният Варненски животец мил и незабравим. Тук е баба Кина — чичо ти Щерю като малък в първо отделение, а малкото детенце е твоя мил татко малко детенце."</p>
+          <figcaption data-bg="Баба Кина с Щерю и малкия Петър — Варна" data-en="Grandmother Kina with Steryu and little Petar — Varna">Баба Кина с Щерю и малкия Петър — Варна</figcaption>
+          <p class="back-note">„Спомен от некогашният Варненски животец мил и незабравим..."</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="petar1.jpg" alt="Баща ти пилот — лице" />
-            <img src="petar1b.jpg" alt="Баща ти пилот — гръб" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/petar1.jpg', 'Баща ти Петър — пилот', 'Тука милият ти татко — пилотъ в отпуска беше дошел...')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/petar1.jpg" alt="Баща ти Петър" loading="lazy">
           </div>
-          <figcaption>Баща ти Петър — пилот</figcaption>
-          <p class="back-note">„Тука милият ти татко — пилотъ в отпуска беше дошел и аз го снех, до като си изкара военната служба аз с страх прекарах по него и много плаках до свършването на 2 годишна служба"</p>
+          <figcaption data-bg="Баща ти Петър — пилот" data-en="Your father Petar — pilot">Баща ти Петър — пилот</figcaption>
+          <p class="back-note">„Тука милият ти татко — пилотъ в отпуска беше дошел..."</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="petar2.jpg" alt="Баща ти на 28 — лице" />
-            <img src="petar2b.jpg" alt="Баща ти на 28 — гръб" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/shteriu.jpg', 'Чичо Щерю — произведен в офицер', 'Тук е чичо ти Щерю като млад още щом го произведох в чин офицер...')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/shteriu.jpg" alt="Чичо Щерю" loading="lazy">
           </div>
-          <figcaption>Баща ти Петър — на 28 години</figcaption>
-          <p class="back-note">„Тук е милият ти татко в снимката е точно на 28 година"</p>
+          <figcaption data-bg="Чичо Щерю — произведен в офицер" data-en="Uncle Steryu — commissioned as officer">Чичо Щерю — произведен в офицер</figcaption>
+          <p class="back-note">„Тук е чичо ти Щерю като млад още щом го произведох в чин офицер..."</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="shteriu.jpg" alt="Чичо Щерю — лице" />
-            <img src="shteriub.jpg" alt="Чичо Щерю — гръб" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/Xriska.jpg', 'Леля Хриска — починала на 17 години', 'Леля ти Хриска умря на 17 години...')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/Xriska.jpg" alt="Леля Хриска" loading="lazy">
           </div>
-          <figcaption>Чичо Щерю — произведен в офицер</figcaption>
-          <p class="back-note">„Тук е чичо ти Щерю като млад още щом го произведох в чин офицер — сега и той остаря и е много болен"</p>
+          <figcaption data-bg="Леля Хриска — починала на 17 години" data-en="Aunt Hriska — died at 17">Леля Хриска — починала на 17 години</figcaption>
+          <p class="back-note">„Леля ти Хриска умря на 17 години..."</p>
         </figure>
 
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="Xriska.jpg" alt="Леля Хриска — лице" />
-            <img src="Xriskab.jpg" alt="Леля Хриска — гръб" />
+        <figure class="photo-item fade-in" onclick="openLightbox('https://tokaihto1-pixel.github.io/foto-iris/strinka_Maria.jpg', 'Стринка Мария — жената на Щерю', 'В тази снимка е стринка ти Мария — жената на чичо ти Щерю...')">
+          <div class="photo-wrapper">
+            <img src="https://tokaihto1-pixel.github.io/foto-iris/strinka_Maria.jpg" alt="Стринка Мария" loading="lazy">
           </div>
-          <figcaption>Леля Хриска — починала на 17 години</figcaption>
-          <p class="back-note">„Леля ти Хриска умря на 17 години — снимах я и като ученичка в малката снимка"</p>
+          <figcaption data-bg="Стринка Мария — жената на Щерю" data-en="Aunt Maria — Steryu's wife">Стринка Мария — жената на Щерю</figcaption>
+          <p class="back-note">„В тази снимка е стринка ти Мария — жената на чичо ти Щерю..."</p>
         </figure>
-
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="strinka_Maria.jpg" alt="Стринка Мария — лице" />
-            <img src="strinka_Maria_b.jpg" alt="Стринка Мария — гръб" />
-          </div>
-          <figcaption>Стринка Мария — жената на Щерю</figcaption>
-          <p class="back-note">„В тази снимка е стринка ти Мария — жената на чичо ти Щерю. Тя тебе много те обича и винаги  ме пита има ли писмо от тебе..."</p>
-        </figure>
-
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="Irinka_Joro_Slavka.jpg" alt="Иринка кръсница — лице" />
-            <img src="Irinka_Joro_Slavkab.jpg" alt="Иринка кръсница — гръб" />
-          </div>
-          <figcaption>Иринка — кръсница на Славка и Жоро</figcaption>
-          <p class="back-note">„Тук е Жоро и женят Славка — аз съм кръстница от страна на Славка. Вече чичото Жоро умря, станали две години."</p>
-        </figure>
-
       </div>
     </div>
   </div>
-
-  <!-- ═══ ARREST ═══ -->
-  <section class="arrest-section">
-    <div class="arrest-inner">
-      <p class="section-label fade-in">1944</p>
-<div class="arrest-quote fade-in lang-bg">„Ателието беше гъчкано от немски офицери."</div><div class="arrest-quote fade-in lang-en">"The studio was packed with German officers."</div>
-<p class="arrest-body fade-in lang-bg">Непосредствено след 9 септември 1944 г. Иринка Чобанова е набедена за немска шпионка заради клиентелата на ателието си. Тя лежи шест месеца в Централния затвор в София. Помилвана е чрез ходатайство на свои известни клиенти — <strong style="color: var(--cream);">Славчо Трънски</strong> и <strong style="color: var(--cream);">Славчо Радомирски</strong>. Освободена, тя се връща към занаята си и преименува ателието на „Фото Ирис".</p><p class="arrest-body fade-in lang-en">Immediately after 9 September 1944, Irinka Chobanova was falsely accused of being a German spy because of her studio's clientele. She spent six months in Sofia's Central Prison. She was pardoned through the intercession of prominent clients — <strong style="color: var(--cream);">Slavcho Transki</strong> and <strong style="color: var(--cream);">Slavcho Radomirski</strong>. Released, she returned to her craft and renamed the studio "Photo Iris".</p>
-    </div>
-  </section>
-
-  <!-- ═══ STAMPS ═══ -->
-  <div style="background: var(--cream); padding: 1px 0;">
-    <div class="section">
-      <p class="section-label fade-in"><span class="lang-bg">Документи</span><span class="lang-en">Documents</span></p>
-      <h2 class="section-title fade-in"><span class="lang-bg">Печатите на ателието</span><span class="lang-en">The Studio Stamps</span></h2>
-<p class="fade-in lang-bg" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;">Едни от малкото оцелели следи от работата на ателието — печатите върху гърба на снимките. Те документират смяната на имената на булеварда: <em>Царица Йоанна → Сталин → Витоша</em> — три режима, един адрес.</p><p class="fade-in lang-en" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;">Among the few surviving traces of the studio's work — the stamps on the backs of photographs. They document the changing names of the boulevard: <em>Tsaritsa Yoanna → Stalin → Vitosha</em> — three regimes, one address.</p>
-
-      <div class="stamp-grid">
-        <div class="stamp-card fade-in">
-          <img src="265407393_5027482697263521_6509191257965299378_n.jpg" alt="Печат Фото Добруджа" />
-          <div class="stamp-info">
-            <div class="stamp-name">Фото „Добруджа"</div>
-            <div class="stamp-address"><span class="lang-bg">бул. Царица Йоанна № 20 · преди 1944 г.</span><span class="lang-en">Blvd. Tsaritsa Yoanna No. 20 · before 1944</span></div>
-          </div>
-        </div>
-        <div class="stamp-card fade-in">
-          <img src="zaha1b.png" alt="Печат Фото Ирис" />
-          <div class="stamp-info">
-            <div class="stamp-name">Фото „Ирис"</div>
-            <div class="stamp-address"><span class="lang-bg">ул. Сталин № 20 · София · след 1944 г.</span><span class="lang-en">Stalin St. No. 20 · Sofia · after 1944</span></div>
-          </div>
-        </div>
-        <div class="stamp-card fade-in">
-          <img src="zaha2b.png" alt="Печат Фото Ирис 2" />
-          <div class="stamp-info">
-            <div class="stamp-name">Фото „Ирис"</div>
-            <div class="stamp-address"><span class="lang-bg">ул. Сталин № 20 · София</span><span class="lang-en">Stalin St. No. 20 · Sofia</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ═══ CLIENT PHOTOS ═══ -->
-  <section class="photo-strip">
-    <div class="photo-strip-inner">
-      <p class="section-label fade-in"><span class="lang-bg">Работата</span><span class="lang-en">The Work</span></p>
-      <h2 class="section-title fade-in"><span class="lang-bg">Снимки от ателието</span><span class="lang-en">Studio Photographs</span></h2>
-<p class="fade-in lang-bg" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px;">За жалост над 99% от архивите на ателието са изгубени. Тези снимки са сред малкото оцелели свидетелства за работата на Иринка Чобанова като фотограф.</p><p class="fade-in lang-en" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px;">Sadly, over 99% of the studio archives have been lost. These photographs are among the few surviving witnesses to Irinka Chobanova's work as a photographer.</p>
-
-      <div class="family-grid">
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="zaha1.png" alt="Клиентка — лице" />
-            <img src="zaha1b.png" alt="Клиентка — гръб" />
-          </div>
-          <figcaption>София — Фото „Ирис"</figcaption>
-        </figure>
-
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="zaha2.png" alt="Клиентка — лице" />
-            <img src="zaha2b.png" alt="Клиентка — гръб" />
-          </div>
-          <figcaption>София — Фото „Ирис"</figcaption>
-        </figure>
-
-        <figure class="photo-pair fade-in">
-          <div class="photo-pair-images">
-            <img src="43166137_2197139300297889_168906658431369216_n.jpg" alt="Клиент" />
-            <img src="265407393_5027482697263521_6509191257965299378_n.jpg" alt="Печат Фото Добруджа" />
-          </div>
-          <figcaption>София — Фото „Добруджа" / „Ирис"</figcaption>
-        </figure>
-
-      </div>
-    </div>
-  </section>
 
   <!-- ═══ LEGACY ═══ -->
-  <div class="section">
-    <p class="section-label fade-in"><span class="lang-bg">Наследство</span><span class="lang-en">Legacy</span></p>
-    <h2 class="section-title fade-in"><span class="lang-bg">56 години пред обектива на историята</span><span class="lang-en">56 Years Before the Lens of History</span></h2>
+  <div class="section" id="legacy">
+    <p class="section-label fade-in" data-bg="Наследство" data-en="Legacy">Наследство</p>
+    <h2 class="section-title fade-in" data-bg="56 години пред обектива на историята" data-en="56 Years Before the Lens of History">56 години пред обектива на историята</h2>
 
     <div class="stats-row fade-in">
       <div class="legacy-stat">
         <span class="legacy-number">56</span>
-        <span class="legacy-label"><span class="lang-bg">Години ателие в София</span><span class="lang-en">Years of studio in Sofia</span></span>
+        <span class="legacy-label" data-bg="Години ателие в София" data-en="Years of studio in Sofia">Години ателие в София</span>
       </div>
       <div class="legacy-stat">
         <span class="legacy-number">90</span>
-        <span class="legacy-label"><span class="lang-bg">Години на последния работен ден</span><span class="lang-en">Age on last working day</span></span>
+        <span class="legacy-label" data-bg="Години на последния работен ден" data-en="Age at last working day">Години на последния работен ден</span>
       </div>
       <div class="legacy-stat">
         <span class="legacy-number">1909</span>
-        <span class="legacy-label"><span class="lang-bg">Начало на чиракуването</span><span class="lang-en">Year apprenticeship began</span></span>
+        <span class="legacy-label" data-bg="Начало на чиракуването" data-en="Beginning of apprenticeship">Начало на чиракуването</span>
       </div>
     </div>
 
-    <div class="divider" style="margin-top: 4rem;">
+    <div class="divider">
       <span class="divider-ornament">✦</span>
     </div>
 
-<p class="fade-in lang-bg" style="max-width: 700px; font-size: 1.05rem; color: #3a2e1e; line-height: 1.8;">Иринка Чобанова остава рядко документиран пример за жена-предприемач в фотографията на ХХ век. В епоха, в която частното предприемачество в България беше потиснато, тя успяла да запази ателието си в продължение на десетилетия — свидетелство за занаятчийска упоритост, личен чар и неугасима любов към светлината.</p><p class="fade-in lang-en" style="max-width: 700px; font-size: 1.05rem; color: #3a2e1e; line-height: 1.8;">Irinka Chobanova remains a rarely documented example of a female entrepreneur in 20th-century photography. In an era when private enterprise in Bulgaria was suppressed, she kept her studio running for decades — a testament to perseverance, personal charm, and an undying love of light.</p>
+    <p class="fade-in" style="max-width: 700px; font-size: 1.05rem; color: #3a2e1e; line-height: 1.8;" data-bg="Иринка Чобанова остава рядко документиран пример за жена-предприемач в фотографията на ХХ век. В епоха, в която частното предприемачество в България беше потиснато, тя успяла да запази ателието си в продължение на десетилетия — свидетелство за занаятчийска упоритост, личен чар и неугасима любов към светлината." data-en="Irinka Chobanova remains a rarely documented example of a female entrepreneur in 20th century photography. In an era when private entrepreneurship in Bulgaria was suppressed, she managed to preserve her studio for decades — a testament to artisan persistence, personal charm, and undying love for light.">
+      Иринка Чобанова остава рядко документиран пример за жена-предприемач в фотографията на ХХ век. В епоха, в която частното предприемачество в България беше потиснато, тя успяла да запази ателието си в продължение на десетилетия — свидетелство за занаятчийска упоритост, личен чар и неугасима любов към светлината.
+    </p>
   </div>
 
   <!-- ═══ FOOTER ═══ -->
@@ -1195,38 +1225,118 @@
     <div class="footer-logo">Фото <span>ИРИС</span></div>
     <div class="footer-sub">Иринка Стоянова Чобанова · 1896–1987</div>
     <div class="footer-divider"></div>
-    <p class="footer-note">
-<span class="lang-bg">Сайтът е създаден от племенника на Иринка — роден и израснал в ателието.</span><span class="lang-en">This site was created by Irinka's nephew — born and raised in the studio.</span>
+    <p class="footer-note" data-bg="Сайтът е създаден от племенника на Иринка — роден и израснал в ателието." data-en="This site was created by Irinka's nephew — born and raised in the studio.">
+      Сайтът е създаден от племенника на Иринка — роден и израснал в ателието.
     </p>
     <p class="footer-note" style="margin-top: 1rem;">
-      <span class="lang-bg">Коментари и въпроси:</span><span class="lang-en">Comments and enquiries:</span>
-      <a href="mailto:petrow.mario@abv.bg" style="color: var(--gold); text-decoration: none; letter-spacing: 0.05em;">petrow.mario@abv.bg</a>
+      <span data-bg="Коментари и въпроси:" data-en="Comments and questions:">Коментари и въпроси:</span>
+      <a href="mailto:petrow.mario@abv.bg">petrow.mario@abv.bg</a>
     </p>
+    <button class="back-to-top" onclick="scrollToTop()" data-bg="↑ Нагоре" data-en="↑ Back to top">↑ Нагоре</button>
   </footer>
 
-  <script>
+  <!-- ═══ BACK TO TOP BUTTON ═══ -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="scrollToTop()" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M5 10l7-7m0 0l7 7m-7-7v18"/>
+    </svg>
+  </button>
 
-    function setLang(lang) {
-      const isBG = (lang === 'bg');
-      document.querySelectorAll('.lang-bg').forEach(function(el) {
-        el.style.display = isBG ? '' : 'none';
+  <!-- ═══ LIGHTBOX ═══ -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="">
+      <p class="lightbox-caption" id="lightboxCaption"></p>
+      <p class="lightbox-note" id="lightboxNote"></p>
+    </div>
+  </div>
+
+  <script>
+    // ═══ LANGUAGE TOGGLE ═══
+    let currentLang = localStorage.getItem('iris-lang') || 'bg';
+    
+    function updateLanguage() {
+      document.querySelectorAll('[data-bg][data-en]').forEach(el => {
+        el.textContent = el.getAttribute(`data-${currentLang}`);
       });
-      document.querySelectorAll('.lang-en').forEach(function(el) {
-        el.style.display = isBG ? 'none' : '';
-      });
-      document.querySelectorAll('.lang-btn').forEach(function(btn) {
-        btn.classList.toggle('active', btn.textContent.trim() === (isBG ? 'БГ' : 'EN'));
-      });
-      localStorage.setItem('foto-iris-lang', lang);
+      
+      document.documentElement.lang = currentLang;
+      document.getElementById('langFlag').textContent = currentLang === 'bg' ? '🇬🇧' : '🇧🇬';
+      document.getElementById('langText').textContent = currentLang === 'bg' ? 'EN' : 'BG';
+      
+      localStorage.setItem('iris-lang', currentLang);
     }
-    // Hide all EN on page load, then check saved preference
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.lang-en').forEach(function(el) { el.style.display = 'none'; });
-      var saved = localStorage.getItem('foto-iris-lang') || 'bg';
-      setLang(saved);
+    
+    document.getElementById('langToggle').addEventListener('click', () => {
+      currentLang = currentLang === 'bg' ? 'en' : 'bg';
+      updateLanguage();
     });
 
-    // Intersection observer for scroll animations
+    // ═══ NAVIGATION ═══
+    const nav = document.getElementById('nav');
+    const backToTopBtn = document.getElementById('backToTopBtn');
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      // Nav background
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      
+      // Back to top button
+      if (window.scrollY > 500) {
+        backToTopBtn.classList.add('visible');
+      } else {
+        backToTopBtn.classList.remove('visible');
+      }
+    });
+
+    // Mobile menu toggle
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Close mobile menu on link click
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+      });
+    });
+
+    // ═══ SCROLL TO TOP ═══
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ═══ LIGHTBOX ═══
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxCaption = document.getElementById('lightboxCaption');
+    const lightboxNote = document.getElementById('lightboxNote');
+
+    function openLightbox(src, caption, note) {
+      lightboxImg.src = src;
+      lightboxCaption.textContent = caption;
+      lightboxNote.textContent = note || '';
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close lightbox on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+
+    // ═══ INTERSECTION OBSERVER ═══
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -1243,7 +1353,10 @@
     document.querySelectorAll('.timeline-item').forEach((el, i) => {
       el.style.transitionDelay = `${i * 0.08}s`;
     });
-  </script>
-</body>
 
+    // ═══ INIT ═══
+    updateLanguage();
+  </script>
+
+</body>
 </html>
