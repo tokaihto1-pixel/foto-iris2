@@ -70,90 +70,19 @@
     .lang-btn.active { background: var(--gold); color: var(--dark); }
     .lang-btn:hover:not(.active) { color: var(--gold); }
 
-    /* DEFAULT: show BG, hide EN */
-    .lang-en { display: none !important; }
-    .lang-bg { display: inline !important; }
-
-    /* When body has class 'en': show EN, hide BG */
-    body.en .lang-en { display: inline !important; }
-    body.en .lang-bg { display: none !important; }
+    /* BG default visible, EN hidden — use JS to toggle */
+    .lang-en { display: none; }
 
     /* ─── LOGO BANNER ─── */
-    .logo-banner {
-      background: var(--dark);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 6rem 2rem;
-      border-bottom: 2px solid #2a2218;
-      overflow: hidden;
-    }
-    .logo-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-    }
-    .logo-deco-top {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      width: 100%;
-      color: var(--gold);
-      font-size: 2rem;
-      opacity: 0.7;
-    }
-    .logo-line {
-      flex: 1;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--gold), transparent);
-      opacity: 0.6;
-    }
-    .logo-foto {
-      font-family: 'Cormorant SC', serif;
-      font-size: 6rem;
-      font-weight: 300;
-      letter-spacing: 1em;
-      color: var(--faded);
-      text-indent: 1em;
-      text-shadow: 0 4px 20px rgba(0,0,0,0.9);
-    }
+    .logo-banner { background: var(--dark); display: flex; justify-content: center; align-items: center; padding: 6rem 2rem; border-bottom: 2px solid #2a2218; overflow: hidden; }
+    .logo-inner { display: flex; flex-direction: column; align-items: center; gap: 1rem; width: 100%; }
+    .logo-deco-top { display: flex; align-items: center; gap: 1rem; width: 100%; color: var(--gold); font-size: 2rem; opacity: 0.7; }
+    .logo-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); opacity: 0.6; }
+    .logo-foto { font-family: 'Cormorant SC', serif; font-size: 6rem; font-weight: 300; letter-spacing: 1em; color: var(--faded); text-indent: 1em; text-shadow: 0 4px 20px rgba(0,0,0,0.9); }
     .logo-iris { position: relative; line-height: 1; }
-    .logo-iris-shadow {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(12rem, 28vw, 22rem);
-      font-weight: 900;
-      font-style: italic;
-      letter-spacing: 0.15em;
-      color: transparent;
-      -webkit-text-stroke: 2px #5a2d0e;
-      position: absolute;
-      top: 18px; left: 18px;
-      user-select: none;
-    }
-    .logo-iris-main {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(12rem, 28vw, 22rem);
-      font-weight: 900;
-      font-style: italic;
-      letter-spacing: 0.15em;
-      color: var(--gold);
-      position: relative;
-      text-shadow:
-        3px 3px 0px #7a3d1f, 7px 7px 0px #5a2d0e,
-        12px 12px 0px #3a1d08, 18px 18px 40px rgba(0,0,0,0.98),
-        0 0 100px rgba(184,146,58,0.4), 0 0 200px rgba(184,146,58,0.15);
-    }
-    .logo-sub {
-      font-family: 'Cormorant SC', serif;
-      font-size: 3rem;
-      letter-spacing: 0.25em;
-      color: #b8923a;
-      margin-top: 1.2rem;
-      text-align: center;
-      text-shadow: 2px 2px 0px #3a1d08, 5px 5px 12px rgba(0,0,0,0.95), 0 0 40px rgba(184,146,58,0.3);
-    }
+    .logo-iris-shadow { font-family: 'Playfair Display', serif; font-size: clamp(12rem, 28vw, 22rem); font-weight: 900; font-style: italic; letter-spacing: 0.15em; color: transparent; -webkit-text-stroke: 2px #5a2d0e; position: absolute; top: 18px; left: 18px; user-select: none; }
+    .logo-iris-main { font-family: 'Playfair Display', serif; font-size: clamp(12rem, 28vw, 22rem); font-weight: 900; font-style: italic; letter-spacing: 0.15em; color: var(--gold); position: relative; text-shadow: 3px 3px 0px #7a3d1f, 7px 7px 0px #5a2d0e, 12px 12px 0px #3a1d08, 18px 18px 40px rgba(0,0,0,0.98), 0 0 100px rgba(184,146,58,0.4), 0 0 200px rgba(184,146,58,0.15); }
+    .logo-sub { font-family: 'Cormorant SC', serif; font-size: 3rem; letter-spacing: 0.25em; color: #b8923a; margin-top: 1.2rem; text-align: center; text-shadow: 2px 2px 0px #3a1d08, 5px 5px 12px rgba(0,0,0,0.95), 0 0 40px rgba(184,146,58,0.3); }
 
     /* ─── HERO ─── */
     .hero {
@@ -869,20 +798,14 @@
   <!-- ═══ LOGO BANNER ═══ -->
   <div class="logo-banner">
     <div class="logo-inner">
-      <div class="logo-deco-top">
-        <span>&#10086;</span><span class="logo-line"></span><span>&#10086;</span>
-      </div>
-      <div class="logo-foto">
-        <span class="lang-bg">ФОТО</span><span class="lang-en">PHOTO</span>
-      </div>
+      <div class="logo-deco-top"><span>&#10086;</span><span class="logo-line"></span><span>&#10086;</span></div>
+      <div class="logo-foto">ФОТО</div>
       <div class="logo-iris">
-        <span class="logo-iris-shadow">IRIS</span>
-        <span class="logo-iris-main">IRIS</span>
+        <span class="logo-iris-shadow">ИРИС</span>
+        <span class="logo-iris-main">ИРИС</span>
       </div>
-      <div class="logo-sub">SOFIA &nbsp;·&nbsp; BLVD. VITOSHA 20 &nbsp;·&nbsp; 1930 — 1986</div>
-      <div class="logo-deco-top">
-        <span>&#10086;</span><span class="logo-line"></span><span>&#10086;</span>
-      </div>
+      <div class="logo-sub">СОФИЯ &nbsp;·&nbsp; БУЛ. ВИТОША 20 &nbsp;·&nbsp; 1930 — 1986</div>
+      <div class="logo-deco-top"><span>&#10086;</span><span class="logo-line"></span><span>&#10086;</span></div>
     </div>
   </div>
 
@@ -902,12 +825,16 @@
     </div>
     <div class="hero-right">
       <p class="hero-intro">
-        <span class="lang-bg">Фотографка. Предприемач. Свидетел на история. Жена, работила с обектив половин век в сърцето на София.</span><span class="lang-en">Photographer. Entrepreneur. Witness to history. A woman who worked behind the lens for half a century in the heart of Sofia.</span>
+        Фотографка. Предприемач. Свидетел на история.
+        Жена, работила с обектив половин век в сърцето на Sofia.
       </p>
       <p class="hero-body">
-        <span class="lang-bg">Иринка Стоянова Чобанова е българска частна фотографка от ХХ век. От 1909 г., когато чиракува на тринадесет години, до 1986 г., когато затваря ателието си на деветдесет — нейният живот е история на упоритост, занаят и светлина.</span><span class="lang-en">Irinka Stoyanova Chobanova was a Bulgarian private photographer of the 20th century. From 1909, when she began her apprenticeship at thirteen, to 1986, when she closed her studio at ninety — her life was a story of perseverance, craft, and light.</span>
+        Иринка Стоянова Чобанова е българска частна фотографка от ХХ век.
+        От 1909 г., когато чиракува на тринадесет години, до 1986 г.,
+        когато затваря ателието си на деветдесет — нейният живот е история
+        на упоритост, занаят и светлина.
       </p>
-      <div class="studio-name"><span class="lang-bg">Фото ИРИС · бул. Витоша 20 · София</span><span class="lang-en">Photo IRIS · Blvd. Vitosha 20 · Sofia</span></div>
+      <div class="studio-name">Фото ИРИС · бул. Витоша 20 · София</div>
     </div>
   </section>
 
@@ -918,24 +845,18 @@
 
     <div class="bio-grid">
       <div class="bio-text fade-in">
-        <p>
-          <span class="lang-bg">Иринка Чобанова е родена през 1896 г. в Лом, в семейството на поручик Стоян Тодоров Чобанов (роден ок. 1870 г. в Хасан Факъх, Османска Империя — днес с. Камбурово) и Кина Кадиева Чобанова (родена в Попово). В началото на ХХ век семейството се премества във Варна. Като първо от седем деца, тя рано напуска училище, за да помага на семейството и да учи занаят.</span><span class="lang-en">Irinka Chobanova was born in 1896 in Lom, into the family of Lieutenant Stoyan Todorov Chobanov (born c. 1870 in Hasan Fakah, Ottoman Empire — today the village of Kamburovo) and Kina Kadieva Chobanova (born in Popovo). In the early 20th century the family moved to Varna. As the eldest of seven children, she left school early to help the family and learn a trade.</span>
-        </p>
-        <p>
-          <span class="lang-bg">От 1909 г. чиракува в ателиетата на <strong>Франц (Франсуа) Бауер</strong> и <strong>Захарий Жейнов</strong> във Варна — двама от забележителните фотографи на тогавашна България. Именно там тя овладява изкуството на студийната фотография, работейки с тежки стъклени негативи и деликатна химия на тъмната стая.</span><span class="lang-en">From 1909 she apprenticed in the studios of <strong>Franz (François) Bauer</strong> and <strong>Zachary Zheinov</strong> in Varna — two of Bulgaria's most distinguished photographers. There she mastered studio photography, working with heavy glass negatives and the delicate chemistry of the darkroom.</span>
-        </p>
-        <p>
-          <span class="lang-bg">В началото на 20-те години тя отваря собствено ателие <strong>„Фото Добруджа"</strong> в Хасково — смела стъпка за млада жена в тогавашното общество. Около 1930 г. пренася бизнеса в София, на бул. „Царица Йоанна" (днес бул. „Витоша" № 20), между Отечествен Фронт и кафене „Бразилия".</span><span class="lang-en">In the early 1920s she opened her own studio, <strong>"Photo Dobrudzha"</strong>, in Haskovo — a bold step for a young woman of the time. Around 1930 she moved the business to Sofia, on Blvd. "Tsaritsa Yoanna" (today Blvd. Vitosha № 20), between the Fatherland Front building and the "Brasil" café.</span>
-        </p>
-        <p>
-          <span class="lang-bg">В довоенните години ателието е „гъчкано от немски офицери" — по нейни собствени думи. Тя свободно говорела на немски и турски език, което правело ателието привлекателно за чуждестранните гости на столицата.</span><span class="lang-en">In the pre-war years the studio was "packed with German officers" — in her own words. She spoke German and Turkish fluently, making the studio appealing to foreign visitors to the capital.</span>
-        </p>
-        <p>
-          <span class="lang-bg">След 9 септември 1944 г. преименува ателието на <strong>„Фото Ирис"</strong>, което продължава да работи като частно ателие на същия адрес до 1980 г. По-късно се премества на бул. „Скобелев" № 2, където тя продължава работата си до навършване на <strong>90-годишна възраст</strong> — 1986 г.</span><span class="lang-en">After 9 September 1944 she renamed the studio <strong>"Photo Iris"</strong>, continuing at the same address until 1980. It later moved to Blvd. "Skobelev" № 2, where she kept working until the age of <strong>90</strong> — 1986.</span>
-        </p>
-        <p>
-          <span class="lang-bg">Работела предимно с <em>стар германски фотоапарат на триножник от края на 19 век</em>. Специализирала в бързи снимки за документи и паспорти — шест снимки за 1 лев, готови на следващия ден. За спешни случаи — услуга за 1 час за 2 лева.</span><span class="lang-en">She worked with <em>an old German large-format camera on a tripod from the late 19th century</em>. She specialised in quick document and passport photographs — six prints for 1 lev, ready the next day. For urgent cases — a one-hour service for 2 leva.</span>
-        </p>
+        <p class="lang-bg">Иринка Чобанова е родена през 1896 г. в Лом, в семейството на поручик Стоян Тодоров Чобанов (роден ок. 1870 г. в Хасан Факъх, Османска Империя — днес с. Камбурово) и Кина Кадиева Чобанова (родена в Попово). В началото на ХХ век семейството се премества във Варна. Като първо от седем деца, тя рано напуска училище, за да помага на семейството и да учи занаят.</p>
+        <p class="lang-en">Irinka Chobanova was born in 1896 in Lom, into the family of Lieutenant Stoyan Todorov Chobanov (born c. 1870 in Hasan Fakah, Ottoman Empire — today the village of Kamburovo) and Kina Kadieva Chobanova (born in Popovo). In the early 20th century the family moved to Varna. As the eldest of seven children, she left school early to help the family and learn a trade.</p>
+        <p class="lang-bg">От 1909 г. чиракува в ателиетата на <strong>Франц (Франсуа) Бауер</strong> и <strong>Захарий Жейнов</strong> във Варна — двама от забележителните фотографи на тогавашна България. Именно там тя овладява изкуството на студийната фотография, работейки с тежки стъклени негативи и деликатна химия на тъмната стая.</p>
+        <p class="lang-en">From 1909 she apprenticed in the studios of <strong>Franz (François) Bauer</strong> and <strong>Zachary Zheinov</strong> in Varna — two of Bulgaria's most distinguished photographers. There she mastered studio photography, working with heavy glass negatives and the delicate chemistry of the darkroom.</p>
+        <p class="lang-bg">В началото на 20-те години тя отваря собствено ателие <strong>„Фото Добруджа"</strong> в Хасково — смела стъпка за млада жена в тогавашното общество. Около 1930 г. пренася бизнеса в София, на бул. „Царица Йоанна" (днес бул. „Витоша" № 20), между Отечествен Фронт и кафене „Бразилия".</p>
+        <p class="lang-en">In the early 1920s she opened her own studio, <strong>"Photo Dobrudzha"</strong>, in Haskovo — a bold step for a young woman. Around 1930 she moved to Sofia, on Blvd. "Tsaritsa Yoanna" (today Blvd. Vitosha № 20), between the Fatherland Front building and the "Brasil" café.</p>
+        <p class="lang-bg">В довоенните години ателието е „гъчкано от немски офицери" — по нейни собствени думи. Тя свободно говорела на немски и турски език, което правело ателието привлекателно за чуждестранните гости на столицата.</p>
+        <p class="lang-en">In the pre-war years the studio was "packed with German officers" — in her own words. She spoke German and Turkish fluently, making the studio appealing to foreign visitors to the capital.</p>
+        <p class="lang-bg">След 9 септември 1944 г. преименува ателието на <strong>„Фото Ирис"</strong>, което продължава да работи като частно ателие на същия адрес до 1980 г. По-късно се премества на бул. „Скобелев" № 2, където тя продължава работата си до навършване на <strong>90-годишна възраст</strong> — 1986 г.</p>
+        <p class="lang-en">After 9 September 1944 she renamed the studio <strong>"Photo Iris"</strong>, continuing at the same address until 1980. It later moved to Blvd. "Skobelev" № 2, where she kept working until the age of <strong>90</strong> — 1986.</p>
+        <p class="lang-bg">Работела предимно с <em>стар германски фотоапарат на триножник от края на 19 век</em>. Специализирала в бързи снимки за документи и паспорти — шест снимки за 1 лев, готови на следващия ден. За спешни случаи — услуга за 1 час за 2 лева.</p>
+        <p class="lang-en">She worked with <em>an old German large-format camera on a tripod from the late 19th century</em>. She specialised in document and passport photographs — six prints for 1 lev, ready the next day. For urgent cases — one-hour service for 2 leva.</p>
       </div>
 
       <aside>
@@ -984,78 +905,58 @@
       <div class="timeline">
         <div class="timeline-item">
           <span class="timeline-year">1896</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>Родена в Лом.</strong> Първо дете от седем в семейството на
-            поручик Стоян Чобанов и Кина Кадиева.</span><span class="lang-en"><strong>Born in Lom.</strong> First of seven children of Lt. Stoyan Chobanov and Kina Kadieva.</span>
-          </div>
+          <div class="timeline-content lang-bg"><strong>Родена в Лом.</strong> Първо дете от седем в семейството на
+            поручик Стоян Чобанов и Кина Кадиева.</div><div class="timeline-content lang-en"><strong>Born in Lom.</strong> First of seven children of Lt. Stoyan Chobanov and Kina Kadieva.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">нач. XX в.</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>Семейството се мести във Варна.</strong> Иринка напуска рано
-            училище, за да помага на семейството.</span><span class="lang-en"><strong>The family moves to Varna.</strong> Irinka leaves school early to help the family.</span>
-          </div>
+          <div class="timeline-content lang-bg"><strong>Семейството се мести във Варна.</strong> Иринка напуска рано
+            училище, за да помага на семейството.</div><div class="timeline-content lang-en"><strong>The family moves to Varna.</strong> Irinka leaves school early to help the family.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">~1909</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>Начало на чиракуването.</strong> Учи фотографски занаят
+          <div class="timeline-content lang-bg"><strong>Начало на чиракуването.</strong> Учи фотографски занаят
             при Франц Бауер и Захарий Жейнов във Варна —
-            на около 13 години.</span><span class="lang-en"><strong>Apprenticeship begins.</strong> Learns photography under Franz Bauer and Zachary Zheinov in Varna — aged around 13.</span>
-          </div>
+            на около 13 години.</div><div class="timeline-content lang-en"><strong>Apprenticeship begins.</strong> Learns photography under Franz Bauer and Zachary Zheinov in Varna — aged around 13.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">~1920</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>„Фото Добруджа" — Хасково.</strong> Отваря първото си
-            собствено ателие в началото на 20-те години.</span><span class="lang-en"><strong>"Photo Dobrudzha" — Haskovo.</strong> Opens her first own studio in the early 1920s.</span>
-          </div>
+          <div class="timeline-content lang-bg"><strong>„Фото Добруджа" — Хасково.</strong> Отваря първото си
+            собствено ателие в началото на 20-те години.</div><div class="timeline-content lang-en"><strong>"Photo Dobrudzha" — Haskovo.</strong> Opens her first studio in the early 1920s.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">~1930</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>„Фото Добруджа" — София.</strong> Премества се на бул.
+          <div class="timeline-content lang-bg"><strong>„Фото Добруджа" — София.</strong> Премества се на бул.
             „Царица Йоанна" № 20 (дн. бул. Витоша). В довоенните години
-            ателието е популярно сред немски офицери.</span><span class="lang-en"><strong>"Photo Dobrudzha" — Sofia.</strong> Moves to Blvd. Tsaritsa Yoanna № 20 (today Blvd. Vitosha). The studio becomes popular with German officers.</span>
-          </div>
+            ателието е популярно сред немски офицери.</div><div class="timeline-content lang-en"><strong>"Photo Dobrudzha" — Sofia.</strong> Moves to Blvd. Tsaritsa Yoanna № 20 (today Blvd. Vitosha). The studio becomes popular with German officers.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">1944</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>Арест и затвор.</strong> Набедена за немска шпионка,
+          <div class="timeline-content lang-bg"><strong>Арест и затвор.</strong> Набедена за немска шпионка,
             лежи шест месеца в Централния затвор в София. Помилвана е
-            по ходатайство на Славчо Трънски и Славчо Радомирски.</span><span class="lang-en"><strong>Arrest and imprisonment.</strong> Falsely accused of being a German spy, she spends six months in Sofia's Central Prison. Pardoned through the intercession of Slavcho Transki and Slavcho Radomirski.</span>
-          </div>
+            по ходатайство на Славчо Трънски и Славчо Радомирски.</div><div class="timeline-content lang-en"><strong>Arrest and imprisonment.</strong> Falsely accused of being a German spy, she spends six months in Sofia's Central Prison. Pardoned through Slavcho Transki and Slavcho Radomirski.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">сл. 1944</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>Преименуване на „Фото Ирис".</strong> Продължава работата
-            си на същия адрес като едно от малкото частни ателиета в НРБ.</span><span class="lang-en"><strong>Renamed "Photo Iris".</strong> Continues at the same address as one of the few private studios in People's Republic of Bulgaria.</span>
-          </div>
+          <div class="timeline-content lang-bg"><strong>Преименуване на „Фото Ирис".</strong> Продължава работата
+            си на същия адрес като едно от малкото частни ателиета в НРБ.</div><div class="timeline-content lang-en"><strong>Renamed "Photo Iris".</strong> Continues at the same address as one of the few private studios in People's Republic of Bulgaria.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">1980</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>Преместване на бул. Скобелев 2.</strong> Ателието сменя
-            адреса, но продължава работа.</span><span class="lang-en"><strong>Moves to Blvd. Skobelev 2.</strong> The studio changes address but continues.</span>
-          </div>
+          <div class="timeline-content lang-bg"><strong>Преместване на бул. Скобелев 2.</strong> Ателието сменя
+            адреса, но продължава работа.</div><div class="timeline-content lang-en"><strong>Moves to Blvd. Skobelev 2.</strong> The studio changes address but continues.</div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">1986</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>Затваря ателието.</strong> На деветдесет години слага
+          <div class="timeline-content lang-bg"><strong>Затваря ателието.</strong> На деветдесет години слага
             капака на стария германски апарат за последен път.
-            <em>56 години непрекъснато фотографско ателие в София.</em></span><span class="lang-en"><strong>Closes the studio.</strong> At ninety she places the lens cap on the old German camera for the last time. <em>56 years of uninterrupted photography in Sofia.</em></span>
-          </div>
+            <em>56 години непрекъснато фотографско ателие в София.</em></div><div class="timeline-content lang-en"><strong>Closes the studio.</strong> At ninety, she places the lens cap on the old German camera for the last time. <em>56 years of uninterrupted photography in Sofia.</em></div>
         </div>
         <div class="timeline-item">
           <span class="timeline-year">1987</span>
-          <div class="timeline-content">
-            <span class="lang-bg"><strong>Иринка Чобанова почива.</strong> Преди това, на около 85 години,
+          <div class="timeline-content lang-bg"><strong>Иринка Чобанова почива.</strong> Преди това, на около 85 години,
             надписва на ръка всяка снимка от семейния албум — за своя племенник,
-            за да не се забрави откъде идва семейството.</span><span class="lang-en"><strong>Irinka Chobanova passes away.</strong> Before her death, at around 85, she hand-annotated every photograph in the family album — for her nephew, so the family's origins would not be forgotten.</span>
-          </div>
+            за да не се забрави откъде идва семейството.</div><div class="timeline-content lang-en"><strong>Irinka Chobanova passes away.</strong> Before her death, at around 85, she hand-annotated every photograph in the family album — for her nephew, so the family's origins would not be forgotten.</div>
         </div>
       </div>
     </div>
@@ -1066,9 +967,8 @@
     <div class="photo-strip-inner">
       <p class="section-label fade-in"><span class="lang-bg">Портрети</span><span class="lang-en">Portraits</span></p>
       <h2 class="section-title fade-in"><span class="lang-bg">Иринка през годините</span><span class="lang-en">Irinka Through the Years</span></h2>
-      <p class="fade-in" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px; font-style: italic;">
-        <span class="lang-bg">Иринка приготвяла фокуса и композицията предварително, после влизала в кадъра. Близък човек — понякога нейният племенник — отварял и затварял капака на апарата. Десетилетия преди думата „selfie" да съществува.</span><span class="lang-en">Irinka would prepare the focus and composition in advance, then step into the frame. A trusted person — sometimes her nephew — would open and close the shutter. Decades before the word "selfie" existed.</span>
-      </p>
+      <p class="fade-in lang-bg" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px; font-style: italic;">Иринка приготвяла фокуса и композицията предварително, после влизала в кадъра. Близък човек — понякога нейният племенник — отварял и затварял капака на апарата. Десетилетия преди думата „selfie" да съществува.</p>
+      <p class="fade-in lang-en" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px; font-style: italic;">Irinka would prepare the focus and composition in advance, then step into the frame. A trusted person — sometimes her nephew — would open and close the shutter. Decades before the word "selfie" existed.</p>
 
       <div class="family-grid">
 
@@ -1218,15 +1118,10 @@
   <section class="arrest-section">
     <div class="arrest-inner">
       <p class="section-label fade-in">1944</p>
-      <div class="arrest-quote fade-in">
-        <span class="lang-bg">„Ателието беше гъчкано от немски офицери."</span><span class="lang-en">"The studio was packed with German officers."</span>
-      </div>
-      <p class="arrest-body fade-in">
-        <span class="lang-bg">Непосредствено след 9 септември 1944 г. Иринка Чобанова е набедена за немска шпионка заради клиентелата на ателието си. Тя лежи шест месеца в Централния затвор в София. Помилвана е чрез ходатайство на свои известни клиенти —</span><span class="lang-en">Immediately after 9 September 1944, Irinka Chobanova was falsely accused of being a German spy because of her studio's clientele. She spent six months in Sofia's Central Prison. She was pardoned through the intercession of prominent clients —</span>
-        <strong style="color: var(--cream);">Славчо Трънски</strong> и
-        <strong style="color: var(--cream);">Славчо Радомирски</strong>.
-        <span class="lang-bg">Освободена, тя се връща към занаята си и преименува ателието на „Фото Ирис".</span><span class="lang-en">Released, she returned to her craft and renamed the studio "Photo Iris".</span>
-      </p>
+      <div class="arrest-quote fade-in lang-bg">„Ателието беше гъчкано от немски офицери."</div>
+      <div class="arrest-quote fade-in lang-en">"The studio was packed with German officers."</div>
+      <p class="arrest-body fade-in lang-bg">Непосредствено след 9 септември 1944 г. Иринка Чобанова е набедена за немска шпионка заради клиентелата на ателието си. Тя лежи шест месеца в Централния затвор в София. Помилвана е чрез ходатайство на свои известни клиенти — <strong style="color: var(--cream);">Славчо Трънски</strong> и <strong style="color: var(--cream);">Славчо Радомирски</strong>. Освободена, тя се връща към занаята си и преименува ателието на „Фото Ирис".</p>
+      <p class="arrest-body fade-in lang-en">Immediately after 9 September 1944, Irinka Chobanova was falsely accused of being a German spy because of her studio's clientele. She spent six months in Sofia's Central Prison. She was pardoned through the intercession of prominent clients — <strong style="color: var(--cream);">Slavcho Transki</strong> and <strong style="color: var(--cream);">Slavcho Radomirski</strong>. Released, she returned to her craft and renamed the studio "Photo Iris".</p>
     </div>
   </section>
 
@@ -1235,9 +1130,8 @@
     <div class="section">
       <p class="section-label fade-in"><span class="lang-bg">Документи</span><span class="lang-en">Documents</span></p>
       <h2 class="section-title fade-in"><span class="lang-bg">Печатите на ателието</span><span class="lang-en">The Studio Stamps</span></h2>
-      <p class="fade-in" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;">
-        <span class="lang-bg">Едни от малкото оцелели следи от работата на ателието — печатите върху гърба на снимките. Те документират смяната на имената на булеварда: <em>Царица Йоанна → Сталин → Витоша</em> — три режима, един адрес.</span><span class="lang-en">Among the few surviving traces of the studio's work — the stamps on the backs of photographs. They document the changing names of the boulevard: <em>Tsaritsa Yoanna → Stalin → Vitosha</em> — three regimes, one address.</span>
-      </p>
+      <p class="fade-in lang-bg" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;">Едни от малкото оцелели следи от работата на ателието — печатите върху гърба на снимките. Те документират смяната на имената на булеварда: <em>Царица Йоанна → Сталин → Витоша</em> — три режима, един адрес.</p>
+      <p class="fade-in lang-en" style="max-width: 700px; color: #3a2e1e; margin-bottom: 3rem;">Among the few surviving traces of the studio's work — the stamps on the backs of photographs. They document the changing names of the boulevard: <em>Tsaritsa Yoanna → Stalin → Vitosha</em> — three regimes, one address.</p>
 
       <div class="stamp-grid">
         <div class="stamp-card fade-in">
@@ -1270,9 +1164,8 @@
     <div class="photo-strip-inner">
       <p class="section-label fade-in"><span class="lang-bg">Работата</span><span class="lang-en">The Work</span></p>
       <h2 class="section-title fade-in"><span class="lang-bg">Снимки от ателието</span><span class="lang-en">Studio Photographs</span></h2>
-      <p class="fade-in" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px;">
-        <span class="lang-bg">За жалост над 99% от архивите на ателието са изгубени. Тези снимки са сред малкото оцелели свидетелства за работата на Иринка Чобанова като фотограф.</span><span class="lang-en">Sadly, over 99% of the studio archives have been lost. These photographs are among the few surviving witnesses to Irinka Chobanova's work as a photographer.</span>
-      </p>
+      <p class="fade-in lang-bg" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px;">За жалост над 99% от архивите на ателието са изгубени. Тези снимки са сред малкото оцелели свидетелства за работата на Иринка Чобанова като фотограф.</p>
+      <p class="fade-in lang-en" style="color: var(--faded); margin-bottom: 3rem; max-width: 650px;">Sadly, over 99% of the studio archives have been lost. These photographs are among the few surviving witnesses to Irinka Chobanova's work as a photographer.</p>
 
       <div class="family-grid">
         <figure class="photo-pair fade-in">
@@ -1306,7 +1199,7 @@
   <!-- ═══ LEGACY ═══ -->
   <div class="section">
     <p class="section-label fade-in">Наследство</p>
-    <h2 class="section-title fade-in">56 години пред обектива на историята</h2>
+    <h2 class="section-title fade-in"><span class="lang-bg">56 години пред обектива на историята</span><span class="lang-en">56 Years Before the Lens of History</span></h2>
 
     <div class="stats-row fade-in">
       <div class="legacy-stat">
@@ -1327,9 +1220,8 @@
       <span class="divider-ornament">✦</span>
     </div>
 
-    <p class="fade-in" style="max-width: 700px; font-size: 1.05rem; color: #3a2e1e; line-height: 1.8;">
-      <span class="lang-bg">Иринка Чобанова остава рядко документиран пример за жена-предприемач в фотографията на ХХ век. В епоха, в която частното предприемачество в България беше потиснато, тя успяла да запази ателието си в продължение на десетилетия — свидетелство за занаятчийска упоритост, личен чар и неугасима любов към светлината.</span><span class="lang-en">Irinka Chobanova remains a rarely documented example of a female entrepreneur in 20th-century photography. In an era when private enterprise in Bulgaria was suppressed, she kept her studio running for decades — a testament to perseverance, personal charm, and an undying love of light.</span>
-    </p>
+    <p class="fade-in lang-bg" style="max-width: 700px; font-size: 1.05rem; color: #3a2e1e; line-height: 1.8;">Иринка Чобанова остава рядко документиран пример за жена-предприемач в фотографията на ХХ век. В епоха, в която частното предприемачество в България беше потиснато, тя успяла да запази ателието си в продължение на десетилетия — свидетелство за занаятчийска упоритост, личен чар и неугасима любов към светлината.</p>
+    <p class="fade-in lang-en" style="max-width: 700px; font-size: 1.05rem; color: #3a2e1e; line-height: 1.8;">Irinka Chobanova remains a rarely documented example of a female entrepreneur in 20th-century photography. In an era when private enterprise in Bulgaria was suppressed, she kept her studio running for decades — a testament to perseverance, personal charm, and an undying love of light.</p>
   </div>
 
   <!-- ═══ FOOTER ═══ -->
@@ -1349,12 +1241,16 @@
   <script>
 
     function setLang(lang) {
-      document.body.classList.toggle('en', lang === 'en');
+      const isBG = lang === 'bg';
+      document.querySelectorAll('.lang-bg').forEach(el => el.style.display = isBG ? '' : 'none');
+      document.querySelectorAll('.lang-en').forEach(el => el.style.display = isBG ? 'none' : '');
       document.querySelectorAll('.lang-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : 'БГ'));
+        btn.classList.toggle('active', btn.textContent.trim() === (isBG ? 'БГ' : 'EN'));
       });
       localStorage.setItem('lang', lang);
     }
+    // On load — BG is default, hide all EN elements
+    document.querySelectorAll('.lang-en').forEach(el => el.style.display = 'none');
     (function() {
       const saved = localStorage.getItem('lang');
       if (saved === 'en') setLang('en');
