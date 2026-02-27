@@ -46,6 +46,22 @@
       opacity: 0.4;
     }
 
+    img {
+      transition: opacity 0.3s ease;
+    }
+    img[data-src] {
+      opacity: 0;
+    }
+    img.loaded {
+      opacity: 1;
+    }
+
+    /* Focus styles for accessibility */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+    }
+
     /* ─── HERO — more depth ─── */
     .hero {
       min-height: 100vh;
@@ -375,6 +391,7 @@
       transition: filter 0.5s ease, transform 0.3s ease;
       box-shadow: 0 2px 6px rgba(0,0,0,0.2);
       border: 1px solid rgba(201, 184, 154, 0.3);
+      cursor: pointer;
     }
 
     .photo-pair-images img:hover {
@@ -453,7 +470,7 @@
     .sidebar-fact-value {
       font-family: 'Playfair Display', serif;
       font-size: 1.1rem;
-      color: var(--ink);
+      color: #2a1e0e;
       font-weight: 600;
     }
 
@@ -602,6 +619,43 @@
       border-left: 1px solid var(--faded);
     }
 
+    /* Lightbox styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      z-index: 10000;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .lightbox.active {
+      display: flex;
+    }
+    
+    .lightbox img {
+      max-height: 90vh;
+      max-width: 90vw;
+      object-fit: contain;
+      border: 2px solid var(--gold);
+      box-shadow: 0 0 30px rgba(0,0,0,0.5);
+    }
+    
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+      font-family: 'Playfair Display', serif;
+    }
+
     /* ─── FOOTER ─── */
     footer {
       background-color: var(--dark);
@@ -675,6 +729,28 @@
       transform: translateY(0);
     }
 
+    /* ─── PRINT STYLES ─── */
+    @media print {
+      body::before { display: none; }
+      .hero-left::after { display: none; }
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero-left {
+        min-height: auto;
+      }
+      .hero-photo {
+        filter: none;
+        max-height: 300px;
+        object-fit: contain;
+      }
+      .fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+
     /* ─── RESPONSIVE ─── */
     @media (max-width: 768px) {
       body { font-size: 16px; }
@@ -734,15 +810,15 @@
         grid-template-columns: 1fr;
       }
     }
-
-    /* ─── PRINT STYLE (optional) ─── */
-    @media print {
-      body::before { display: none; }
-      .hero-left::after { display: none; }
-    }
   </style>
 </head>
 <body>
+
+  <!-- Lightbox container -->
+  <div class="lightbox" id="lightbox">
+    <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+    <img id="lightbox-img" src="" alt="">
+  </div>
 
   <!-- ═══ HERO ═══ -->
   <section class="hero">
@@ -1205,6 +1281,24 @@
           <p class="back-note">Два печата върху една снимка — рядкост, която показва прехода</p>
         </figure>
 
+        <!-- Pete images added here -->
+        <figure class="photo-pair fade-in">
+          <div class="photo-pair-images">
+            <img src="pete1.jpg" alt="Петър — млад" />
+            <img src="pete2.jpg" alt="Петър — портрет" />
+          </div>
+          <figcaption>Петър — младежки години</figcaption>
+          <p class="back-note">От архива на ателието — запазени кадри на близък на семейството</p>
+        </figure>
+
+        <figure class="photo-pair fade-in">
+          <div class="photo-pair-images">
+            <img src="pete3.jpg" alt="Петър — военна униформа" />
+            <img src="pete4.jpg" alt="Петър — зряла възраст" />
+          </div>
+          <figcaption>Петър през годините</figcaption>
+          <p class="back-note">Снимки, правени в различно време, но запазили светлината на ателието</p>
+        </figure>
       </div>
     </div>
   </section>
@@ -1272,6 +1366,42 @@
   </footer>
 
   <script>
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    function openLightbox(src) {
+      lightboxImg.src = src;
+      lightbox.classList.add('active');
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      lightboxImg.src = '';
+    }
+
+    // Add click handlers to all images in photo pairs
+    document.querySelectorAll('.photo-pair-images img').forEach(img => {
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openLightbox(this.src);
+      });
+    });
+
+    // Close lightbox when clicking on background
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    // Close lightbox with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+
     // Intersection observer for scroll animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
